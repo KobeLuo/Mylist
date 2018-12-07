@@ -14,6 +14,7 @@
 		4AC235C321B775F200D50F1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC235C121B775F200D50F1E /* LaunchScreen.storyboard */; };
 		4AC235CE21B775F200D50F1E /* MylistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235CD21B775F200D50F1E /* MylistTests.swift */; };
 		4AC235D921B775F200D50F1E /* MylistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235D821B775F200D50F1E /* MylistUITests.swift */; };
+		4AC2368F21BA179500D50F1E /* MLEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2368E21BA179500D50F1E /* MLEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		4AC235D421B775F200D50F1E /* MylistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MylistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC235D821B775F200D50F1E /* MylistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MylistUITests.swift; sourceTree = "<group>"; };
 		4AC235DA21B775F200D50F1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AC2368E21BA179500D50F1E /* MLEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				4AC235B821B775F000D50F1E /* AppDelegate.swift */,
 				4AC235BA21B775F000D50F1E /* ViewController.swift */,
+				4AC2368D21BA177000D50F1E /* DataStructure */,
 				4AC235BC21B775F000D50F1E /* Main.storyboard */,
 				4AC235BF21B775F200D50F1E /* Assets.xcassets */,
 				4AC235C121B775F200D50F1E /* LaunchScreen.storyboard */,
@@ -123,6 +126,14 @@
 				4AC235DA21B775F200D50F1E /* Info.plist */,
 			);
 			path = MylistUITests;
+			sourceTree = "<group>";
+		};
+		4AC2368D21BA177000D50F1E /* DataStructure */ = {
+			isa = PBXGroup;
+			children = (
+				4AC2368E21BA179500D50F1E /* MLEvent.swift */,
+			);
+			path = DataStructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AC235BB21B775F000D50F1E /* ViewController.swift in Sources */,
+				4AC2368F21BA179500D50F1E /* MLEvent.swift in Sources */,
 				4AC235B921B775F000D50F1E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
