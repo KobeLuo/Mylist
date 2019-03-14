@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A2090EE221CED31003E9386 /* MLEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2090ED221CED31003E9386 /* MLEditorViewController.swift */; };
+		4A2090F1221CF984003E9386 /* MLNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2090F0221CF984003E9386 /* MLNotificationHelper.swift */; };
 		4AC235B921B775F000D50F1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235B821B775F000D50F1E /* AppDelegate.swift */; };
-		4AC235BB21B775F000D50F1E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235BA21B775F000D50F1E /* ViewController.swift */; };
+		4AC235BB21B775F000D50F1E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235BA21B775F000D50F1E /* MainViewController.swift */; };
 		4AC235BE21B775F000D50F1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC235BC21B775F000D50F1E /* Main.storyboard */; };
 		4AC235C021B775F200D50F1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC235BF21B775F200D50F1E /* Assets.xcassets */; };
 		4AC235C321B775F200D50F1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC235C121B775F200D50F1E /* LaunchScreen.storyboard */; };
@@ -35,9 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A2090ED221CED31003E9386 /* MLEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLEditorViewController.swift; sourceTree = "<group>"; };
+		4A2090F0221CF984003E9386 /* MLNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLNotificationHelper.swift; sourceTree = "<group>"; };
 		4AC235B521B775F000D50F1E /* Mylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC235B821B775F000D50F1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4AC235BA21B775F000D50F1E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4AC235BA21B775F000D50F1E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4AC235BD21B775F000D50F1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AC235BF21B775F200D50F1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AC235C221B775F200D50F1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A2090EF221CF968003E9386 /* LocalNotification */ = {
+			isa = PBXGroup;
+			children = (
+				4A2090F0221CF984003E9386 /* MLNotificationHelper.swift */,
+			);
+			path = LocalNotification;
+			sourceTree = "<group>";
+		};
 		4AC235AC21B775F000D50F1E = {
 			isa = PBXGroup;
 			children = (
@@ -100,7 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				4AC235B821B775F000D50F1E /* AppDelegate.swift */,
-				4AC235BA21B775F000D50F1E /* ViewController.swift */,
+				4AC235BA21B775F000D50F1E /* MainViewController.swift */,
+				4A2090ED221CED31003E9386 /* MLEditorViewController.swift */,
+				4A2090EF221CF968003E9386 /* LocalNotification */,
 				4AC2368D21BA177000D50F1E /* DataStructure */,
 				4AC235BC21B775F000D50F1E /* Main.storyboard */,
 				4AC235BF21B775F200D50F1E /* Assets.xcassets */,
@@ -267,9 +281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC235BB21B775F000D50F1E /* ViewController.swift in Sources */,
+				4AC235BB21B775F000D50F1E /* MainViewController.swift in Sources */,
 				4AC2368F21BA179500D50F1E /* MLEvent.swift in Sources */,
+				4A2090EE221CED31003E9386 /* MLEditorViewController.swift in Sources */,
 				4AC235B921B775F000D50F1E /* AppDelegate.swift in Sources */,
+				4A2090F1221CF984003E9386 /* MLNotificationHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
