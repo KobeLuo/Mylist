@@ -94,7 +94,9 @@ struct MLEvent {
     //the event unique identifier
     var e_id: Int16
     //the name or title of given event
-    var e_name: String
+    var e_body: String
+    var e_title: String
+    var e_subtitle: String
     //the type of event
     var e_type: MLEventType
     //the qos of the event
