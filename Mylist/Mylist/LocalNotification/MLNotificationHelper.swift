@@ -23,11 +23,10 @@ class MLLocalNotification: NSObject {
                 print("register success")
             }else {
                 
-                print("register error:\(error)")
+                print("register error:\(error!)")
             }
         }
     }
-    
     
     class func createNotification(_ event: MLEvent) {
         

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4A2090EE221CED31003E9386 /* MLEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2090ED221CED31003E9386 /* MLEditorViewController.swift */; };
 		4A2090F1221CF984003E9386 /* MLNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2090F0221CF984003E9386 /* MLNotificationHelper.swift */; };
+		4AC182DC230D1548000B6BFE /* MLEditorTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC182DB230D1548000B6BFE /* MLEditorTableViewDelegate.swift */; };
+		4AC182E0230D2156000B6BFE /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC182DF230D2156000B6BFE /* ViewExtension.swift */; };
+		4AC182E2230D289F000B6BFE /* MLContextEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC182E1230D289F000B6BFE /* MLContextEditorVC.swift */; };
 		4AC235B921B775F000D50F1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235B821B775F000D50F1E /* AppDelegate.swift */; };
 		4AC235BB21B775F000D50F1E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235BA21B775F000D50F1E /* MainViewController.swift */; };
 		4AC235BE21B775F000D50F1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC235BC21B775F000D50F1E /* Main.storyboard */; };
@@ -17,6 +20,10 @@
 		4AC235CE21B775F200D50F1E /* MylistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235CD21B775F200D50F1E /* MylistTests.swift */; };
 		4AC235D921B775F200D50F1E /* MylistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235D821B775F200D50F1E /* MylistUITests.swift */; };
 		4AC2368F21BA179500D50F1E /* MLEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2368E21BA179500D50F1E /* MLEvent.swift */; };
+		4AFD56FB230CE84C00D3DF83 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F7230CE84C00D3DF83 /* RxSwift.framework */; };
+		4AFD56FC230CE84C00D3DF83 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F8230CE84C00D3DF83 /* RxAtomic.framework */; };
+		4AFD56FD230CE84C00D3DF83 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F9230CE84C00D3DF83 /* RxBlocking.framework */; };
+		4AFD56FE230CE84C00D3DF83 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56FA230CE84C00D3DF83 /* RxCocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +46,9 @@
 /* Begin PBXFileReference section */
 		4A2090ED221CED31003E9386 /* MLEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLEditorViewController.swift; sourceTree = "<group>"; };
 		4A2090F0221CF984003E9386 /* MLNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLNotificationHelper.swift; sourceTree = "<group>"; };
+		4AC182DB230D1548000B6BFE /* MLEditorTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLEditorTableViewDelegate.swift; sourceTree = "<group>"; };
+		4AC182DF230D2156000B6BFE /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		4AC182E1230D289F000B6BFE /* MLContextEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLContextEditorVC.swift; sourceTree = "<group>"; };
 		4AC235B521B775F000D50F1E /* Mylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC235B821B775F000D50F1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AC235BA21B775F000D50F1E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +63,10 @@
 		4AC235D821B775F200D50F1E /* MylistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MylistUITests.swift; sourceTree = "<group>"; };
 		4AC235DA21B775F200D50F1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AC2368E21BA179500D50F1E /* MLEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLEvent.swift; sourceTree = "<group>"; };
+		4AFD56F7230CE84C00D3DF83 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		4AFD56F8230CE84C00D3DF83 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
+		4AFD56F9230CE84C00D3DF83 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		4AFD56FA230CE84C00D3DF83 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AFD56FB230CE84C00D3DF83 /* RxSwift.framework in Frameworks */,
+				4AFD56FC230CE84C00D3DF83 /* RxAtomic.framework in Frameworks */,
+				4AFD56FD230CE84C00D3DF83 /* RxBlocking.framework in Frameworks */,
+				4AFD56FE230CE84C00D3DF83 /* RxCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +106,25 @@
 			path = LocalNotification;
 			sourceTree = "<group>";
 		};
+		4AC182DD230D192E000B6BFE /* EditVC */ = {
+			isa = PBXGroup;
+			children = (
+				4A2090ED221CED31003E9386 /* MLEditorViewController.swift */,
+				4AC182DB230D1548000B6BFE /* MLEditorTableViewDelegate.swift */,
+				4AC182E1230D289F000B6BFE /* MLContextEditorVC.swift */,
+				4AC182DE230D194E000B6BFE /* views */,
+			);
+			path = EditVC;
+			sourceTree = "<group>";
+		};
+		4AC182DE230D194E000B6BFE /* views */ = {
+			isa = PBXGroup;
+			children = (
+				4AC182DF230D2156000B6BFE /* ViewExtension.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		4AC235AC21B775F000D50F1E = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +132,7 @@
 				4AC235CC21B775F200D50F1E /* MylistTests */,
 				4AC235D721B775F200D50F1E /* MylistUITests */,
 				4AC235B621B775F000D50F1E /* Products */,
+				4AFD56F6230CE84C00D3DF83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,7 +151,7 @@
 			children = (
 				4AC235B821B775F000D50F1E /* AppDelegate.swift */,
 				4AC235BA21B775F000D50F1E /* MainViewController.swift */,
-				4A2090ED221CED31003E9386 /* MLEditorViewController.swift */,
+				4AC182DD230D192E000B6BFE /* EditVC */,
 				4A2090EF221CF968003E9386 /* LocalNotification */,
 				4AC2368D21BA177000D50F1E /* DataStructure */,
 				4AC235BC21B775F000D50F1E /* Main.storyboard */,
@@ -150,6 +188,17 @@
 			path = DataStructure;
 			sourceTree = "<group>";
 		};
+		4AFD56F6230CE84C00D3DF83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AFD56F8230CE84C00D3DF83 /* RxAtomic.framework */,
+				4AFD56F9230CE84C00D3DF83 /* RxBlocking.framework */,
+				4AFD56FA230CE84C00D3DF83 /* RxCocoa.framework */,
+				4AFD56F7230CE84C00D3DF83 /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,6 +209,7 @@
 				4AC235B121B775F000D50F1E /* Sources */,
 				4AC235B221B775F000D50F1E /* Frameworks */,
 				4AC235B321B775F000D50F1E /* Resources */,
+				4AFD56FF230CE85C00D3DF83 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -276,14 +326,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4AFD56FF230CE85C00D3DF83 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxAtomic.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4AC235B121B775F000D50F1E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC182E2230D289F000B6BFE /* MLContextEditorVC.swift in Sources */,
 				4AC235BB21B775F000D50F1E /* MainViewController.swift in Sources */,
 				4AC2368F21BA179500D50F1E /* MLEvent.swift in Sources */,
 				4A2090EE221CED31003E9386 /* MLEditorViewController.swift in Sources */,
+				4AC182E0230D2156000B6BFE /* ViewExtension.swift in Sources */,
+				4AC182DC230D1548000B6BFE /* MLEditorTableViewDelegate.swift in Sources */,
 				4AC235B921B775F000D50F1E /* AppDelegate.swift in Sources */,
 				4A2090F1221CF984003E9386 /* MLNotificationHelper.swift in Sources */,
 			);
@@ -461,6 +534,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24K4NVLUY4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Mylist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -483,6 +560,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEPLOYMENT_POSTPROCESSING = NO;
 				DEVELOPMENT_TEAM = 24K4NVLUY4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Mylist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
