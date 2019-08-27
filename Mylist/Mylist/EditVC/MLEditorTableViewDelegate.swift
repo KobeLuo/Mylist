@@ -56,22 +56,12 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return ["Event Name","Event","Alarm","Note"][section]
+        return ["事件名称","事件细节","事件提醒","备  注"][section]
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let identifier = "label context"
-        var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-        if nil == cell {
-            
-            cell = UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier)
-        }
-        let textInfo = [IndexPath.init(row: 0, section: 0): event.e_title,
-                        IndexPath.init(row: 1, section: 0): event.e_subtitle];
-        cell?.textLabel?.text = textInfo[indexPath]
-        
-        return cell!
+        return cellForText(table:tableView, indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -85,4 +75,52 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
     
     // MARK: Observer
     func observeContextEdit(invoke: @escaping MLContextTypeInvoke) { cInvoke = invoke }
+    
+    
+    // MARK: Table Cell
+    func cellForText(table: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        
+        let identifier = "label context"
+        var isPlaceHolder = true
+        var cell = table.dequeueReusableCell(withIdentifier: identifier)
+        if nil == cell {
+            
+            cell = UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier)
+        }
+        let textInfo = [IndexPath.init(row: 0, section: 0): event.e_title_desc,
+                        IndexPath.init(row: 1, section: 0): event.e_subtitle_desc,
+                        
+                        IndexPath.init(row: 0, section: 1): event.e_type_desc,
+                        IndexPath.init(row: 1, section: 1): event.e_triggerDate_desc,
+                        IndexPath.init(row: 2, section: 1): event.e_qos_desc,
+                        IndexPath.init(row: 3, section: 1): event.e_repeat_desc,
+                        
+                        IndexPath.init(row: 0, section: 2): event.e_isAlarm_desc,
+                        IndexPath.init(row: 1, section: 2): event.e_alarmDate_desc,
+                        IndexPath.init(row: 2, section: 2): event.e_alarmType_desc,
+                        
+                        IndexPath.init(row: 0, section: 3): event.e_note_desc,]
+        let text: String = textInfo[indexPath]!
+        cell?.textLabel?.text = text
+        
+        let isPlaceHolderInfo = [IndexPath.init(row: 0, section: 0): (text == MLEvent.e_title_ph),
+                                 IndexPath.init(row: 1, section: 0): (text == MLEvent.e_subtitle_ph),
+                                 
+                                 IndexPath.init(row: 0, section: 1): (text == MLEvent.e_type_ph),
+                                 IndexPath.init(row: 1, section: 1): (text == MLEvent.e_triggerDate_ph),
+                                 IndexPath.init(row: 2, section: 1): (text == MLEvent.e_qos_ph),
+                                 IndexPath.init(row: 3, section: 1): (text == MLEvent.e_repeat_ph),
+                                 
+                                 IndexPath.init(row: 0, section: 2): false,
+                                 IndexPath.init(row: 1, section: 2): (text == MLEvent.e_alarmDate_ph),
+                                 IndexPath.init(row: 2, section: 2): (text == MLEvent.e_alarmRepeatTye_ph),
+                                 
+                                 IndexPath.init(row: 0, section: 3): (text == MLEvent.e_note_ph),]
+        
+        let normalColor = UIColor.black
+        let placehColor = UIColor.gray
+        cell?.textLabel?.textColor = isPlaceHolderInfo[indexPath] == true ? placehColor : normalColor
+        
+        return cell!
+    }
 }

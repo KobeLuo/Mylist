@@ -31,9 +31,9 @@ class MLLocalNotification: NSObject {
     class func createNotification(_ event: MLEvent) {
         
         let content = UNMutableNotificationContent()
-        content.title = event.e_title
-        content.subtitle = event.e_subtitle
-        content.body = event.e_body
+        content.title = event.e_title ?? "Unknow title"
+        content.subtitle = event.e_subtitle ?? ""
+        content.body = event.e_body ?? ""
         content.sound = UNNotificationSound.default()
         content.badge = 1
 //        content.attachments

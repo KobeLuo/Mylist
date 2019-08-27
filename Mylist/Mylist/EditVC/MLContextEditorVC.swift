@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class MLContextEditorVC: UIViewController, UITextViewDelegate {
     
@@ -29,6 +30,19 @@ class MLContextEditorVC: UIViewController, UITextViewDelegate {
             
             if endInvoke != nil { let _ = endInvoke!(textView.text) }
         }
+        
+//        let observer: AnyObserver<String> = AnyObserver {
+//            [weak self] (event) in
+//
+//            switch event {
+//
+//            case .next(let value):
+//                self?.textView.text = value
+//            default: break
+//            }
+//        }
+        
+        
     }
     
     func observeEndEditing(invoke: @escaping MLContextInvoke) { endInvoke = invoke }
@@ -36,4 +50,15 @@ class MLContextEditorVC: UIViewController, UITextViewDelegate {
     deinit {
         print("\(self.description) did dealloc")
     }
+    
+    
 }
+
+//extension Reactive where Base: UIView {
+//    public var isHidden: Binder<Bool> {
+//        return Binder(self.base) { view, hidden in
+//            view.isHidden = hidden
+//        }
+//    }
+//}
+

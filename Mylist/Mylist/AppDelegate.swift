@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let event = MLEvent.init(id: 123, title: "demo test", type: .et_nml, trigger: 1234, alarm: 1234)
 //        MLLocalNotification.createNotification(event)
         
-        test()
+        
+//        test()
         
         return true
     }
@@ -86,6 +87,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    
 }
 

@@ -29,9 +29,9 @@ class MLEditorViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         tableView.tableHeaderView = UIView.init(frame: CGRect(0,0,tableView.width,20))
         tableView.reloadData()
         
-        tableDelegate.observeContextEdit { value in
+        tableDelegate.observeContextEdit { [weak self] (value) in
             
-            self.pushContextVC(type: value)
+            self?.pushContextVC(type: value)
         }
 //        self.tableView.backgroundColor = UIColor.red;
     }
@@ -52,7 +52,7 @@ class MLEditorViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     func pushContextVC(type: MLEditorContextType) {
         
         print("push context vc")
-        var event = self.tableDelegate.event!
+        let event = self.tableDelegate.event!
         let info = [MLEditorContextType.title:      event.e_title,
                     MLEditorContextType.subtitle:   event.e_subtitle,
                     MLEditorContextType.note:       event.e_note]
@@ -61,17 +61,20 @@ class MLEditorViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         let controller = sb.instantiateViewController(withIdentifier: "MLContextEditorVC") as! MLContextEditorVC
         controller.editType = type
         controller.context = info[type]!
-        controller.observeEndEditing { (value) -> Void in
+        controller.observeEndEditing { [weak self] (v) -> Void in
+            
+            var value = v
+            if value == "" { value = nil }
             
             switch type {
             case .title:
-                self.tableDelegate.event.e_title = value ?? ""
+                self?.tableDelegate.event.e_title = value
             case .subtitle:
-                self.tableDelegate.event.e_subtitle = value ?? ""
+                self?.tableDelegate.event.e_subtitle = value
             case .note:
-                self.tableDelegate.event.e_note = value ?? ""
+                self?.tableDelegate.event.e_note = value
             }
-            self.tableView.reloadData()
+            self?.tableView.reloadData()
         }
 
         self.navigationController?.pushViewController(controller, animated: true)

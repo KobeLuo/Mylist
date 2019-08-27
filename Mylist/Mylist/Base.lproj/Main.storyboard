@@ -76,10 +76,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="Eo3-8E-edf">
                         <barButtonItem key="rightBarButtonItem" title="Save" style="plain" id="0Al-cc-OGF">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6gZ-eq-hrA">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6gZ-eq-hrA">
+                                <rect key="frame" x="276" y="7" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" red="1" green="0.94759419935639433" blue="0.98057018819536168" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveAction:" destination="Cla-fO-LIf" eventType="touchUpInside" id="6Hy-qj-AUn"/>
                                 </connections>
