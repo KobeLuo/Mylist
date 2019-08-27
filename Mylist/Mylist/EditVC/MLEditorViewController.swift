@@ -79,4 +79,9 @@ class MLEditorViewController: UIViewController,UITextFieldDelegate,UITextViewDel
 
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    
+    deinit {
+        print("\(self.description) did dealloc")
+    }
 }

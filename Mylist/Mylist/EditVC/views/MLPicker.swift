@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 typealias T = MLTypeProtocol
-typealias MLPickerResult = (T) -> Void
+typealias MLPickerResult = (T?) -> Void
 
 class MLPicker: UIView, UITableViewDataSource, UITableViewDelegate {
     
@@ -25,6 +25,7 @@ class MLPicker: UIView, UITableViewDataSource, UITableViewDelegate {
         let picker = MLPicker.init(frame: superview.bounds)
         picker.list = list
         picker.invoke = completeHandle
+        
         superview.addSubview(picker)
         
         picker.intialSubviews(superview: superview)
@@ -33,6 +34,11 @@ class MLPicker: UIView, UITableViewDataSource, UITableViewDelegate {
     
     func intialSubviews(superview: UIView) {
         
+        //load tap gesture
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tap(tap:)))
+        self.addGestureRecognizer(tap)
+        
+        //load table
         let tableHeight: CGFloat = 200
         let off_y = (superview.height - tableHeight) / 2
         let side: CGFloat = 10
@@ -44,9 +50,32 @@ class MLPicker: UIView, UITableViewDataSource, UITableViewDelegate {
         table!.delegate = self
         table!.dataSource = self
         table!.backgroundColor = UIColor.init(white: 1, alpha: 0.9)
-        
+
+        table?.setCornerRadius(v: 5)
+
         self.addSubview(table!)
         table!.reloadData()
+    }
+    
+    @objc func tap(tap:UITapGestureRecognizer?) {
+        
+        revoke(v: nil)
+    }
+    
+    func revoke(v: T?) {
+        
+        if invoke != nil {
+            
+            invoke!(v)
+        }
+        
+        self.removeFromSuperview()
+    }
+    
+    
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        return true
     }
     
     // MARK: UITableView & datasource
@@ -74,10 +103,7 @@ class MLPicker: UIView, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let value = list![indexPath.row]
-        guard let resultInvoke = invoke else { return }
-        resultInvoke(value)
-        
-        self.removeFromSuperview()
+        revoke(v: value)
     }
     
     deinit {

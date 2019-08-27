@@ -19,6 +19,14 @@ extension UIView {
     var left: CGFloat { get { return self.x } }
     var bottom: CGFloat { get { return self.y + self.height } }
     var right: CGFloat { get { return self.x + self.width } }
+    
+    func setCornerRadius(v: CGFloat) {
+        
+        self.layer.cornerRadius = v
+        self.clipsToBounds = true
+    }
+    
+    
 }
 
 extension CGRect {
@@ -27,4 +35,9 @@ extension CGRect {
         
         self.init(x: x, y: y, width: width, height: height)
     }
+}
+
+extension CALayer {
+    
+    
 }

@@ -66,8 +66,6 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRow(at: indexPath, animated: true)
-        
         switch indexPath.section {
         case 0:
             if cInvoke != nil {
@@ -82,31 +80,47 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
         default: break
             
         }
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func eventDetailSelect(indexPath: IndexPath,tableView: UITableView) {
         
+        tableView.isScrollEnabled = false
         switch indexPath.row {
         case 0:
             
             MLPicker.showPicker(inView: tableView, list: MLEvent.e_type_list as [T]) {[weak self] (r) in
                 
-                self?.event.e_type = r as? MLEventType
-                tableView.reloadRows(at: [indexPath], with: .automatic)
+                if r != nil {
+                    
+                    self?.event.e_type = r as? MLEventType
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                }
+                
+                tableView.isScrollEnabled = true
             }
-        case 1: break
+        case 1:  tableView.isUserInteractionEnabled = true
         case 2:
             MLPicker.showPicker(inView: tableView, list: MLEvent.e_qos_list) { [weak self] (r) in
                 
-                self?.event.e_qos = r as? MLEventQos
-                tableView.reloadRows(at: [indexPath], with: .automatic)
+                if r != nil {
+                    
+                    self?.event.e_qos = r as? MLEventQos
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                }
+                
+                tableView.isScrollEnabled = true
             }
         case 3:
             MLPicker.showPicker(inView: tableView, list: MLEvent.e_repeat_list) { [weak self] (r) in
                 
-                self?.event.e_repeatType = r as? MLEventRepeatScheme
-                tableView.reloadRows(at: [indexPath], with: .automatic)
+                if r != nil {
+                    
+                    self?.event.e_repeatType = r as? MLEventRepeatScheme
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                }
+                
+                tableView.isScrollEnabled = true
             }
         default: break
         }
