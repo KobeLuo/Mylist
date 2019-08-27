@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1832A9392315675A00F59946 /* MLPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832A9382315675A00F59946 /* MLPicker.swift */; };
+		1832A93B2315772D00F59946 /* MLTypeDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832A93A2315772D00F59946 /* MLTypeDefine.swift */; };
 		4A16AAA52315157F00BEDC5C /* MLEvent+Biz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16AAA32315155200BEDC5C /* MLEvent+Biz.swift */; };
 		4A2090EE221CED31003E9386 /* MLEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2090ED221CED31003E9386 /* MLEditorViewController.swift */; };
 		4A2090F1221CF984003E9386 /* MLNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2090F0221CF984003E9386 /* MLNotificationHelper.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1832A9382315675A00F59946 /* MLPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLPicker.swift; sourceTree = "<group>"; };
+		1832A93A2315772D00F59946 /* MLTypeDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLTypeDefine.swift; sourceTree = "<group>"; };
 		4A16AAA32315155200BEDC5C /* MLEvent+Biz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MLEvent+Biz.swift"; sourceTree = "<group>"; };
 		4A2090ED221CED31003E9386 /* MLEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLEditorViewController.swift; sourceTree = "<group>"; };
 		4A2090F0221CF984003E9386 /* MLNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLNotificationHelper.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 			children = (
 				4AC182DF230D2156000B6BFE /* ViewExtension.swift */,
 				4A56CE3B23136F0200195C05 /* FoundationExtension.swift */,
+				1832A9382315675A00F59946 /* MLPicker.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				4AC2368E21BA179500D50F1E /* MLEvent.swift */,
+				1832A93A2315772D00F59946 /* MLTypeDefine.swift */,
 				4A16AAA32315155200BEDC5C /* MLEvent+Biz.swift */,
 			);
 			path = DataStructure;
@@ -371,6 +377,8 @@
 				4A2090EE221CED31003E9386 /* MLEditorViewController.swift in Sources */,
 				4AC182E0230D2156000B6BFE /* ViewExtension.swift in Sources */,
 				4AC182DC230D1548000B6BFE /* MLEditorTableViewDelegate.swift in Sources */,
+				1832A9392315675A00F59946 /* MLPicker.swift in Sources */,
+				1832A93B2315772D00F59946 /* MLTypeDefine.swift in Sources */,
 				4AC235B921B775F000D50F1E /* AppDelegate.swift in Sources */,
 				4A16AAA52315157F00BEDC5C /* MLEvent+Biz.swift in Sources */,
 				4A56CE3C23136F0200195C05 /* FoundationExtension.swift in Sources */,
@@ -554,7 +562,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Mylist/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Mylist/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -580,7 +588,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Mylist/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Mylist/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -20,7 +20,20 @@ extension MLEvent {
     static let e_alarmDate_ph = "请选择事件提醒时间"
     static let e_alarmRepeatTye_ph = "请选择重复提醒方案"
     static let e_note_ph = "更多细节，请填写于此"
+    static var e_type_list: [MLEventType] {
+        
+        return [.et_btd,.et_cdt,.et_ctd,.et_nml]
+    }
     
+    static var e_qos_list: [MLEventQos] {
+        
+        return [.eq_egy,.eq_ipt,.eq_cmn,.eq_lwl]
+    }
+    
+    static var e_repeat_list: [MLEventRepeatScheme] {
+
+        return [.er_nr,.er_ed,.er_ew,.er_em,.er_ey]
+    }
     
     var e_title_desc: String {
         
@@ -51,7 +64,7 @@ extension MLEvent {
     
     var e_qos_desc: String {
         
-        if e_type == nil {
+        if e_qos == nil {
             
             return MLEvent.e_qos_ph
         }
@@ -69,13 +82,13 @@ extension MLEvent {
     
     var e_isAlarm_desc: String {
         
-        return e_isAlarm == true ? "需要提醒" : "不需要提醒"
+        return e_isAlarm == true ? "需要定期提醒" : "不需要定期提醒"
     }
     
     var e_alarmDate_desc: String {
         
         if e_isAlarm == false {
-            return ""
+            return "--"
         } else if e_alarmDate == nil {
             
             return MLEvent.e_alarmDate_ph
@@ -85,7 +98,7 @@ extension MLEvent {
     
     var e_alarmType_desc: String {
         
-        if e_isAlarm == false { return "" }
+        if e_isAlarm == false { return "--" }
         if e_alarmRepeatType == nil { return MLEvent.e_alarmRepeatTye_ph }
         return e_alarmRepeatType!.desc
     }

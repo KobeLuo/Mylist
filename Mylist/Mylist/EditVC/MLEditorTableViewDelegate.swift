@@ -66,10 +66,49 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.section == 0 && (cInvoke != nil) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.section {
+        case 0:
+            if cInvoke != nil {
+                
+                let value = [0: MLEditorContextType.title, 1: .subtitle][indexPath.row]
+                cInvoke!(value!)
+            }
+        case 1: eventDetailSelect(indexPath: indexPath, tableView: tableView)
+        case 2:break
+        case 3:
+            if cInvoke != nil { cInvoke!(MLEditorContextType.note) }
+        default: break
             
-            let value = [0: MLEditorContextType.title, 1: .subtitle][indexPath.row]
-            cInvoke!(value!)
+        }
+        
+    }
+    
+    func eventDetailSelect(indexPath: IndexPath,tableView: UITableView) {
+        
+        switch indexPath.row {
+        case 0:
+            
+            MLPicker.showPicker(inView: tableView, list: MLEvent.e_type_list as [T]) {[weak self] (r) in
+                
+                self?.event.e_type = r as? MLEventType
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        case 1: break
+        case 2:
+            MLPicker.showPicker(inView: tableView, list: MLEvent.e_qos_list) { [weak self] (r) in
+                
+                self?.event.e_qos = r as? MLEventQos
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        case 3:
+            MLPicker.showPicker(inView: tableView, list: MLEvent.e_repeat_list) { [weak self] (r) in
+                
+                self?.event.e_repeatType = r as? MLEventRepeatScheme
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        default: break
         }
     }
     
@@ -81,46 +120,32 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
     func cellForText(table: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let identifier = "label context"
-        var isPlaceHolder = true
         var cell = table.dequeueReusableCell(withIdentifier: identifier)
         if nil == cell {
             
             cell = UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier)
         }
-        let textInfo = [IndexPath.init(row: 0, section: 0): event.e_title_desc,
-                        IndexPath.init(row: 1, section: 0): event.e_subtitle_desc,
+        let textInfo = [IndexPath(row: 0, section: 0): (event.e_title_desc,MLEvent.e_title_ph),
+                        IndexPath(row: 1, section: 0): (event.e_subtitle_desc,MLEvent.e_subtitle_ph),
                         
-                        IndexPath.init(row: 0, section: 1): event.e_type_desc,
-                        IndexPath.init(row: 1, section: 1): event.e_triggerDate_desc,
-                        IndexPath.init(row: 2, section: 1): event.e_qos_desc,
-                        IndexPath.init(row: 3, section: 1): event.e_repeat_desc,
+                        IndexPath(row: 0, section: 1): (event.e_type_desc,MLEvent.e_type_ph),
+                        IndexPath(row: 1, section: 1): (event.e_triggerDate_desc,MLEvent.e_triggerDate_ph),
+                        IndexPath(row: 2, section: 1): (event.e_qos_desc,MLEvent.e_qos_ph),
+                        IndexPath(row: 3, section: 1): (event.e_repeat_desc,MLEvent.e_repeat_ph),
                         
-                        IndexPath.init(row: 0, section: 2): event.e_isAlarm_desc,
-                        IndexPath.init(row: 1, section: 2): event.e_alarmDate_desc,
-                        IndexPath.init(row: 2, section: 2): event.e_alarmType_desc,
+                        IndexPath(row: 0, section: 2): (event.e_isAlarm_desc,""),
+                        IndexPath(row: 1, section: 2): (event.e_alarmDate_desc,MLEvent.e_alarmDate_ph),
+                        IndexPath(row: 2, section: 2): (event.e_alarmType_desc,MLEvent.e_alarmRepeatTye_ph),
                         
-                        IndexPath.init(row: 0, section: 3): event.e_note_desc,]
-        let text: String = textInfo[indexPath]!
-        cell?.textLabel?.text = text
-        
-        let isPlaceHolderInfo = [IndexPath.init(row: 0, section: 0): (text == MLEvent.e_title_ph),
-                                 IndexPath.init(row: 1, section: 0): (text == MLEvent.e_subtitle_ph),
-                                 
-                                 IndexPath.init(row: 0, section: 1): (text == MLEvent.e_type_ph),
-                                 IndexPath.init(row: 1, section: 1): (text == MLEvent.e_triggerDate_ph),
-                                 IndexPath.init(row: 2, section: 1): (text == MLEvent.e_qos_ph),
-                                 IndexPath.init(row: 3, section: 1): (text == MLEvent.e_repeat_ph),
-                                 
-                                 IndexPath.init(row: 0, section: 2): false,
-                                 IndexPath.init(row: 1, section: 2): (text == MLEvent.e_alarmDate_ph),
-                                 IndexPath.init(row: 2, section: 2): (text == MLEvent.e_alarmRepeatTye_ph),
-                                 
-                                 IndexPath.init(row: 0, section: 3): (text == MLEvent.e_note_ph),]
-        
+                        IndexPath(row: 0, section: 3): (event.e_note_desc,MLEvent.e_note_ph)]
+        let tuple = textInfo[indexPath]!
+        let text = tuple.0
+        let isPlaceholder = text == tuple.1
         let normalColor = UIColor.black
         let placehColor = UIColor.gray
-        cell?.textLabel?.textColor = isPlaceHolderInfo[indexPath] == true ? placehColor : normalColor
-        
+        cell?.textLabel?.textColor = isPlaceholder ? placehColor : normalColor
+        cell?.textLabel?.text = text
+
         return cell!
     }
 }
