@@ -18,8 +18,10 @@ enum MLEventType: Equatable,MLTypeProtocol {
     
     case et_btd //birthday
     case et_cdt //credit
+    case et_pdt //pay debt
     case et_nml //normal
     case et_ctd //count down
+    case et_amb //alarm bell
     
     static func ==(lp: MLEventType, rp: MLEventType) -> Bool {
         
@@ -31,8 +33,10 @@ enum MLEventType: Equatable,MLTypeProtocol {
         switch self {
         case .et_btd:   return "事件类型: 生　日"
         case .et_cdt:   return "事件类型: 信　用"
+        case .et_pdt:   return "事件类型: 还　债"
         case .et_ctd:   return "事件类型: 倒计时"
         case .et_nml:   return "事件类型: 常　规"
+        case .et_amb:   return "事件类型: 闹　铃"
         }
     }
     
@@ -150,21 +154,21 @@ enum MLEventAlarmScheme: RawRepresentable, MLTypeProtocol {
     var rawValue: Int {
         
         switch self {
-        case .ea_nr: return 0
-        case .ea_tb1h: return 1
-        case .ea_tbhd: return 2
-        case .ea_tbnd(days: let n): return n + MLEventAlarmScheme.od
-        case .ea_tbnw(weeks: let n): return n + MLEventAlarmScheme.ow
-        case .ea_tbnm(months: let n): return n + MLEventAlarmScheme.om
+        case .ea_nr:                    return 0
+        case .ea_tb1h:                  return 1
+        case .ea_tbhd:                  return 2
+        case .ea_tbnd(days: let n):     return n + MLEventAlarmScheme.od
+        case .ea_tbnw(weeks: let n):    return n + MLEventAlarmScheme.ow
+        case .ea_tbnm(months: let n):   return n + MLEventAlarmScheme.om
         }
     }
     
     var desc: String {
             
             switch self {
-            case .ea_nr:                return "从不提醒"
-            case .ea_tb1h:              return "提前一小时提醒"
-            case .ea_tbhd:              return "提前半天提醒"
+            case .ea_nr:                    return "从不提醒"
+            case .ea_tb1h:                  return "提前一小时提醒"
+            case .ea_tbhd:                  return "提前半天提醒"
             case .ea_tbnd(days: let n):     return "提前\(n)天提醒"
             case .ea_tbnw(weeks: let n):    return "提前\(n)周提醒"
             case .ea_tbnm(months: let n):   return "提前\(n)个月提醒"

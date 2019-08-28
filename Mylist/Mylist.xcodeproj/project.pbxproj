@@ -10,20 +10,25 @@
 		1832A9392315675A00F59946 /* MLPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832A9382315675A00F59946 /* MLPicker.swift */; };
 		1832A93B2315772D00F59946 /* MLTypeDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832A93A2315772D00F59946 /* MLTypeDefine.swift */; };
 		4A16AAA52315157F00BEDC5C /* MLEvent+Biz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16AAA32315155200BEDC5C /* MLEvent+Biz.swift */; };
+		4A1B50FB23161FEA001244E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B50F823161FE9001244E9 /* MainViewController.swift */; };
+		4A1B50FC23161FEA001244E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B50FA23161FEA001244E9 /* AppDelegate.swift */; };
 		4A2090EE221CED31003E9386 /* MLEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2090ED221CED31003E9386 /* MLEditorViewController.swift */; };
 		4A2090F1221CF984003E9386 /* MLNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2090F0221CF984003E9386 /* MLNotificationHelper.swift */; };
 		4A56CE3C23136F0200195C05 /* FoundationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A56CE3B23136F0200195C05 /* FoundationExtension.swift */; };
 		4AC182DC230D1548000B6BFE /* MLEditorTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC182DB230D1548000B6BFE /* MLEditorTableViewDelegate.swift */; };
 		4AC182E0230D2156000B6BFE /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC182DF230D2156000B6BFE /* ViewExtension.swift */; };
 		4AC182E2230D289F000B6BFE /* MLContextEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC182E1230D289F000B6BFE /* MLContextEditorVC.swift */; };
-		4AC235B921B775F000D50F1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235B821B775F000D50F1E /* AppDelegate.swift */; };
-		4AC235BB21B775F000D50F1E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235BA21B775F000D50F1E /* MainViewController.swift */; };
 		4AC235BE21B775F000D50F1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC235BC21B775F000D50F1E /* Main.storyboard */; };
 		4AC235C021B775F200D50F1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC235BF21B775F200D50F1E /* Assets.xcassets */; };
 		4AC235C321B775F200D50F1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC235C121B775F200D50F1E /* LaunchScreen.storyboard */; };
 		4AC235CE21B775F200D50F1E /* MylistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235CD21B775F200D50F1E /* MylistTests.swift */; };
 		4AC235D921B775F200D50F1E /* MylistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235D821B775F200D50F1E /* MylistUITests.swift */; };
 		4AC2368F21BA179500D50F1E /* MLEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2368E21BA179500D50F1E /* MLEvent.swift */; };
+		4ADB18AF23166693002A8C5E /* surprise.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB18AE23166693002A8C5E /* surprise.aiff */; };
+		4ADB18B123166737002A8C5E /* bb.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB18B023166737002A8C5E /* bb.wav */; };
+		4ADB18B323166C5E002A8C5E /* credential.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB18B223166C5E002A8C5E /* credential.wav */; };
+		4ADB18B523166D1E002A8C5E /* MLEventType+Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB18B423166D1E002A8C5E /* MLEventType+Sound.swift */; };
+		4ADB18B723167055002A8C5E /* payDebt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB18B623167055002A8C5E /* payDebt.wav */; };
 		4AFD56FB230CE84C00D3DF83 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F7230CE84C00D3DF83 /* RxSwift.framework */; };
 		4AFD56FC230CE84C00D3DF83 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F8230CE84C00D3DF83 /* RxAtomic.framework */; };
 		4AFD56FD230CE84C00D3DF83 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F9230CE84C00D3DF83 /* RxBlocking.framework */; };
@@ -51,6 +56,8 @@
 		1832A9382315675A00F59946 /* MLPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLPicker.swift; sourceTree = "<group>"; };
 		1832A93A2315772D00F59946 /* MLTypeDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLTypeDefine.swift; sourceTree = "<group>"; };
 		4A16AAA32315155200BEDC5C /* MLEvent+Biz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MLEvent+Biz.swift"; sourceTree = "<group>"; };
+		4A1B50F823161FE9001244E9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4A1B50FA23161FEA001244E9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A2090ED221CED31003E9386 /* MLEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLEditorViewController.swift; sourceTree = "<group>"; };
 		4A2090F0221CF984003E9386 /* MLNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLNotificationHelper.swift; sourceTree = "<group>"; };
 		4A56CE3B23136F0200195C05 /* FoundationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtension.swift; sourceTree = "<group>"; };
@@ -58,8 +65,6 @@
 		4AC182DF230D2156000B6BFE /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		4AC182E1230D289F000B6BFE /* MLContextEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLContextEditorVC.swift; sourceTree = "<group>"; };
 		4AC235B521B775F000D50F1E /* Mylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AC235B821B775F000D50F1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4AC235BA21B775F000D50F1E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4AC235BD21B775F000D50F1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AC235BF21B775F200D50F1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AC235C221B775F200D50F1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,6 +76,11 @@
 		4AC235D821B775F200D50F1E /* MylistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MylistUITests.swift; sourceTree = "<group>"; };
 		4AC235DA21B775F200D50F1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AC2368E21BA179500D50F1E /* MLEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLEvent.swift; sourceTree = "<group>"; };
+		4ADB18AE23166693002A8C5E /* surprise.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = surprise.aiff; sourceTree = "<group>"; };
+		4ADB18B023166737002A8C5E /* bb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bb.wav; sourceTree = "<group>"; };
+		4ADB18B223166C5E002A8C5E /* credential.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = credential.wav; sourceTree = "<group>"; };
+		4ADB18B423166D1E002A8C5E /* MLEventType+Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MLEventType+Sound.swift"; sourceTree = "<group>"; };
+		4ADB18B623167055002A8C5E /* payDebt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = payDebt.wav; sourceTree = "<group>"; };
 		4AFD56F7230CE84C00D3DF83 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		4AFD56F8230CE84C00D3DF83 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
 		4AFD56F9230CE84C00D3DF83 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
@@ -109,6 +119,9 @@
 		4A1B50F32315203B001244E9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4ADB18AB231665B0002A8C5E /* Audios */,
+				4A1B50FA23161FEA001244E9 /* AppDelegate.swift */,
+				4A1B50F823161FE9001244E9 /* MainViewController.swift */,
 				4AC235BC21B775F000D50F1E /* Main.storyboard */,
 				4AC235BF21B775F200D50F1E /* Assets.xcassets */,
 				4AC235C121B775F200D50F1E /* LaunchScreen.storyboard */,
@@ -121,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				4A2090F0221CF984003E9386 /* MLNotificationHelper.swift */,
+				4ADB18B423166D1E002A8C5E /* MLEventType+Sound.swift */,
 			);
 			path = LocalNotification;
 			sourceTree = "<group>";
@@ -171,8 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				4A1B50F32315203B001244E9 /* Resources */,
-				4AC235B821B775F000D50F1E /* AppDelegate.swift */,
-				4AC235BA21B775F000D50F1E /* MainViewController.swift */,
 				4AC182DD230D192E000B6BFE /* EditVC */,
 				4A2090EF221CF968003E9386 /* LocalNotification */,
 				4AC2368D21BA177000D50F1E /* DataStructure */,
@@ -206,6 +218,17 @@
 				4A16AAA32315155200BEDC5C /* MLEvent+Biz.swift */,
 			);
 			path = DataStructure;
+			sourceTree = "<group>";
+		};
+		4ADB18AB231665B0002A8C5E /* Audios */ = {
+			isa = PBXGroup;
+			children = (
+				4ADB18B623167055002A8C5E /* payDebt.wav */,
+				4ADB18B023166737002A8C5E /* bb.wav */,
+				4ADB18AE23166693002A8C5E /* surprise.aiff */,
+				4ADB18B223166C5E002A8C5E /* credential.wav */,
+			);
+			path = Audios;
 			sourceTree = "<group>";
 		};
 		4AFD56F6230CE84C00D3DF83 /* Frameworks */ = {
@@ -325,8 +348,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AC235C321B775F200D50F1E /* LaunchScreen.storyboard in Resources */,
+				4ADB18AF23166693002A8C5E /* surprise.aiff in Resources */,
+				4ADB18B723167055002A8C5E /* payDebt.wav in Resources */,
+				4ADB18B123166737002A8C5E /* bb.wav in Resources */,
 				4AC235C021B775F200D50F1E /* Assets.xcassets in Resources */,
 				4AC235BE21B775F000D50F1E /* Main.storyboard in Resources */,
+				4ADB18B323166C5E002A8C5E /* credential.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,15 +398,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ADB18B523166D1E002A8C5E /* MLEventType+Sound.swift in Sources */,
+				4A1B50FC23161FEA001244E9 /* AppDelegate.swift in Sources */,
 				4AC182E2230D289F000B6BFE /* MLContextEditorVC.swift in Sources */,
-				4AC235BB21B775F000D50F1E /* MainViewController.swift in Sources */,
+				4A1B50FB23161FEA001244E9 /* MainViewController.swift in Sources */,
 				4AC2368F21BA179500D50F1E /* MLEvent.swift in Sources */,
 				4A2090EE221CED31003E9386 /* MLEditorViewController.swift in Sources */,
 				4AC182E0230D2156000B6BFE /* ViewExtension.swift in Sources */,
 				4AC182DC230D1548000B6BFE /* MLEditorTableViewDelegate.swift in Sources */,
 				1832A9392315675A00F59946 /* MLPicker.swift in Sources */,
 				1832A93B2315772D00F59946 /* MLTypeDefine.swift in Sources */,
-				4AC235B921B775F000D50F1E /* AppDelegate.swift in Sources */,
 				4A16AAA52315157F00BEDC5C /* MLEvent+Biz.swift in Sources */,
 				4A56CE3C23136F0200195C05 /* FoundationExtension.swift in Sources */,
 				4A2090F1221CF984003E9386 /* MLNotificationHelper.swift in Sources */,
@@ -562,6 +590,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Mylist/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -588,6 +618,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Mylist/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

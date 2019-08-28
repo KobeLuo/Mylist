@@ -22,7 +22,7 @@ extension MLEvent {
     static let e_note_ph = "更多细节，请填写于此"
     static var e_type_list: [MLEventType] {
         
-        return [.et_btd,.et_cdt,.et_nml,.et_ctd]
+        return [.et_btd,.et_cdt,.et_pdt,.et_nml,.et_ctd,.et_amb]
     }
     
     static var e_qos_list: [MLEventQos] {

@@ -28,19 +28,50 @@ class MLLocalNotification: NSObject {
         }
     }
     
+    class func removeAllDeliverNotification() {
+        
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+    }
+    
+    class func getAllDeliveredNotification() {
+        
+        let center = UNUserNotificationCenter.current()
+        center.getDeliveredNotifications { (results) in
+            
+            let _ = results.enumerated().map({ (arg) in
+                
+                let (_, notify) = arg
+                center.removeDeliveredNotifications(withIdentifiers: [notify.request.identifier])
+            })
+        }
+        
+        center.removeAllDeliveredNotifications()
+        center.removeAllPendingNotificationRequests()
+    }
+    
     class func createNotification(_ event: MLEvent) {
         
         let content = UNMutableNotificationContent()
         content.title = event.e_title ?? "Unknow title"
         content.subtitle = event.e_subtitle ?? ""
         content.body = event.e_body ?? ""
-        content.sound = UNNotificationSound.default()
-        content.badge = 1
-//        content.attachments
-        let date = Date(timeIntervalSinceNow: 3)
+        let sound = event.e_type?.sound()
+        content.sound = sound
+        content.badge = 0
+        
+        let date = Date(timeIntervalSinceNow: 15)
+        let calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.chinese)!
 //        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        
+//        let weekday = calendar.component(.weekday, from: date)
+        let triggerDate = calendar.components([.weekday], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+//        var date = DateComponents()
+//        date.second = 30
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
+        
+        print("trigger.nextTriggerDate():\(String(describing: trigger.nextTriggerDate()))")
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
         
         let identifier = "Local notification"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
@@ -50,7 +81,25 @@ class MLLocalNotification: NSObject {
             if let error = error {
                 
                 print("Error \(error.localizedDescription)")
+            }else {
+                
+                print("no error")
             }
         }
+    }
+    
+    class func calenderComponents(component: Calendar.Component) -> Set<Calendar.Component> {
+        
+        var components: Set<Calendar.Component>
+        switch component {
+        case .year:     components = [.month,.day,.hour,.minute,.second]
+        case .month:    components = [.day,.hour,.minute,.second]
+        case .day:      components = [.hour,.minute,.second]
+        case .weekday:  components = [.weekday]
+        case .hour:     components = [.minute,.second]
+        case .minute:   components = [.second]
+        default:        components = [.year,.month,.day,.hour,.minute,.second]
+        }
+        return components
     }
 }

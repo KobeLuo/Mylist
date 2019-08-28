@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 typealias MLContextInvoke = (String?) -> Void
 typealias MLContextTypeInvoke = (MLEditorContextType) -> Void
@@ -23,7 +25,8 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
     var event: MLEvent!
     var cInvoke: MLContextTypeInvoke?
     var rowHeight: CGFloat = 44
-    var disposable: Disposable?
+    var disposeBag = DisposeBag()
+    var table: UITableView?
     
     override init() {
         
@@ -180,10 +183,10 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
                 let frame = CGRect.init(offset_x, side, sw!.width,sw!.height)
                 sw!.frame = frame
                 
+                sw!.addTarget(self, action: #selector(valueChange(sw:)), for: .valueChanged)
+                sw!.isOn = isPlaceholder
             }
             
-            sw!.isOn = !isPlaceholder
-//            sw!.rx.isOn.bind
         }else {
             
             if sw != nil { sw?.isHidden = true }
@@ -191,4 +194,11 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
         
         return cell!
     }
+   
+    @objc func valueChange(sw: UISwitch) {
+        
+        self.event.e_isAlarm = sw.isOn
+        table?.reloadData()
+    }
 }
+
