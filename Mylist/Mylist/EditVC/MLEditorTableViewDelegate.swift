@@ -22,6 +22,9 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
     
     var event: MLEvent!
     var cInvoke: MLContextTypeInvoke?
+    var rowHeight: CGFloat = 44
+    var disposable: Disposable?
+    
     override init() {
         
         event = MLEvent.init()
@@ -52,7 +55,7 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return rowHeight
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
@@ -159,7 +162,33 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
         let placehColor = UIColor.gray
         cell?.textLabel?.textColor = isPlaceholder ? placehColor : normalColor
         cell?.textLabel?.text = text
-
+        
+        let tag = 10086
+        var sw: UISwitch? = cell?.viewWithTag(tag) as? UISwitch
+        
+        if indexPath == IndexPath(row: 0, section: 2) {
+            
+            sw?.isHidden = false
+            if sw == nil {
+                
+                sw = UISwitch()
+                sw?.tag = tag
+                cell!.addSubview(sw!)
+        
+                let side:CGFloat = (rowHeight - sw!.height)/2
+                let offset_x = table.width - sw!.width - side
+                let frame = CGRect.init(offset_x, side, sw!.width,sw!.height)
+                sw!.frame = frame
+                
+            }
+            
+            sw!.isOn = !isPlaceholder
+//            sw!.rx.isOn.bind
+        }else {
+            
+            if sw != nil { sw?.isHidden = true }
+        }
+        
         return cell!
     }
 }

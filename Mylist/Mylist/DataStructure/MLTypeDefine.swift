@@ -103,6 +103,23 @@ enum MLEventRepeatScheme: MLTypeProtocol {
     func typeDesc() -> String { return desc }
 }
 
+enum MLEventStatus: MLTypeProtocol {
+    
+    case es_nml //event statsu normal
+    case es_aph // event status approach the trigger date
+    case es_epr //event did expire
+    
+    var desc: String {
+        
+        switch self {
+        case .es_nml:       return "状态: 常　规"
+        case .es_aph:       return "状态: 临　近"
+        case .es_epr:       return "状态: 已过期"
+        }
+    }
+    
+    func typeDesc() -> String { return desc }
+}
 
 enum MLEventAlarmScheme: RawRepresentable, MLTypeProtocol {
     

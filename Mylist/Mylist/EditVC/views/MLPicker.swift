@@ -12,7 +12,7 @@ import UIKit
 typealias T = MLTypeProtocol
 typealias MLPickerResult = (T?) -> Void
 
-class MLPicker: UIView, UITableViewDataSource, UITableViewDelegate {
+class MLPicker: UIView, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
     var invoke: MLPickerResult?
     var list: [T]?
@@ -36,6 +36,7 @@ class MLPicker: UIView, UITableViewDataSource, UITableViewDelegate {
         
         //load tap gesture
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tap(tap:)))
+        tap.delegate = self
         self.addGestureRecognizer(tap)
         
         //load table
@@ -72,10 +73,9 @@ class MLPicker: UIView, UITableViewDataSource, UITableViewDelegate {
         self.removeFromSuperview()
     }
     
-    
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         
-        return true
+        return touch.view! == self
     }
     
     // MARK: UITableView & datasource

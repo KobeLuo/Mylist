@@ -46,6 +46,9 @@ struct MLEvent {
     //the local path of the event icon
     var e_icAdr: String?
     
+    //the event current status indicator
+    var e_state: MLEventStatus?
+    
     init(id: Int16? = nil,
          body: String? = nil,
          title: String? = nil,
