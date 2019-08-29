@@ -32,7 +32,7 @@ extension MLEvent {
     
     static var e_repeat_list: [MLEventRepeatScheme] {
 
-        return [.er_nr,.er_ed,.er_ew,.er_em,.er_ey]
+        return [.er_nr,.er_eh,.er_ed,.er_ew,.er_em,.er_ey]
     }
     
     var e_title_desc: String {

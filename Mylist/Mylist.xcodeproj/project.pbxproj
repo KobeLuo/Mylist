@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1832A9392315675A00F59946 /* MLPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832A9382315675A00F59946 /* MLPicker.swift */; };
 		1832A93B2315772D00F59946 /* MLTypeDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832A93A2315772D00F59946 /* MLTypeDefine.swift */; };
+		1832A93D23169FA400F59946 /* MLDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832A93C23169FA400F59946 /* MLDatePicker.swift */; };
 		4A16AAA52315157F00BEDC5C /* MLEvent+Biz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16AAA32315155200BEDC5C /* MLEvent+Biz.swift */; };
 		4A1B50FB23161FEA001244E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B50F823161FE9001244E9 /* MainViewController.swift */; };
 		4A1B50FC23161FEA001244E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B50FA23161FEA001244E9 /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		1832A9382315675A00F59946 /* MLPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLPicker.swift; sourceTree = "<group>"; };
 		1832A93A2315772D00F59946 /* MLTypeDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLTypeDefine.swift; sourceTree = "<group>"; };
+		1832A93C23169FA400F59946 /* MLDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLDatePicker.swift; sourceTree = "<group>"; };
 		4A16AAA32315155200BEDC5C /* MLEvent+Biz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MLEvent+Biz.swift"; sourceTree = "<group>"; };
 		4A1B50F823161FE9001244E9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4A1B50FA23161FEA001244E9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				4AC182DF230D2156000B6BFE /* ViewExtension.swift */,
 				4A56CE3B23136F0200195C05 /* FoundationExtension.swift */,
 				1832A9382315675A00F59946 /* MLPicker.swift */,
+				1832A93C23169FA400F59946 /* MLDatePicker.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				4A1B50FB23161FEA001244E9 /* MainViewController.swift in Sources */,
 				4AC2368F21BA179500D50F1E /* MLEvent.swift in Sources */,
 				4A2090EE221CED31003E9386 /* MLEditorViewController.swift in Sources */,
+				1832A93D23169FA400F59946 /* MLDatePicker.swift in Sources */,
 				4AC182E0230D2156000B6BFE /* ViewExtension.swift in Sources */,
 				4AC182DC230D1548000B6BFE /* MLEditorTableViewDelegate.swift in Sources */,
 				1832A9392315675A00F59946 /* MLPicker.swift in Sources */,

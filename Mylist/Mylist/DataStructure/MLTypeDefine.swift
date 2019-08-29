@@ -88,6 +88,7 @@ enum MLEventQos: RawRepresentable, Equatable, MLTypeProtocol {
 enum MLEventRepeatScheme: MLTypeProtocol {
     
     case er_nr //never
+    case er_eh //every hour
     case er_ed //every day
     case er_ew //every week
     case er_em //every month
@@ -97,6 +98,7 @@ enum MLEventRepeatScheme: MLTypeProtocol {
         
         switch self {
         case .er_ed: return "每天 重复"
+        case .er_eh: return "每时 重复"
         case .er_ew: return "每周 重复"
         case .er_em: return "每月 重复"
         case .er_ey: return "每年 重复"

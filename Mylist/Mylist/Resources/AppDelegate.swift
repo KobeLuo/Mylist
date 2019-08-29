@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         MLLocalNotification.registerNotification()
         
-        let event = MLEvent.init(id: 123, title: "demo test", type: .et_pdt, trigger: 1234, alarm: 1234)
+        let event = MLEvent.init(id: 123, title: "demo test", type: .et_pdt, trigger: Date(), alarm: Date())
 //        MLLocalNotification.removeAllDeliverNotification()
         MLLocalNotification.getAllDeliveredNotification()
-        MLLocalNotification.createNotification(event)
+//        MLLocalNotification.createNotification(event)
 //        test()
         
         return true

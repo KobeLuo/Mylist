@@ -80,7 +80,7 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
                 cInvoke!(value!)
             }
         case 1: eventDetailSelect(indexPath: indexPath, tableView: tableView)
-        case 2:break
+        case 2: alarmDetailSelect(indexPath: indexPath, tableView: tableView)
         case 3:
             if cInvoke != nil { cInvoke!(MLEditorContextType.note) }
         default: break
@@ -89,6 +89,37 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func alarmDetailSelect(indexPath: IndexPath,tableView: UITableView) {
+        
+        if self.event.e_isAlarm == false { return }
+        switch indexPath.row {
+        case 0: break
+        case 1:
+            tableView.isScrollEnabled = false
+            MLDatePicker.showDatePicker(inview: tableView) { [weak self] (r) in
+                
+                if r != nil {
+                    
+                    self?.event.e_alarmDate = r
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                }
+                tableView.isScrollEnabled = true
+            }
+        case 2:
+            tableView.isScrollEnabled = false
+            MLPicker.showPicker(inView: tableView, list: MLEvent.e_repeat_list as [T]) { [weak self] (r) in
+                
+                if r != nil {
+                    
+                    self?.event.e_alarmRepeatType = r as? MLEventRepeatScheme
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                }
+                tableView.isScrollEnabled = true
+            }
+            
+        default: break
+        }
+    }
     func eventDetailSelect(indexPath: IndexPath,tableView: UITableView) {
         
         tableView.isScrollEnabled = false

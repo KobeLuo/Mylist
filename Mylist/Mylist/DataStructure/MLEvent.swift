@@ -26,7 +26,7 @@ struct MLEvent {
     var e_qos:  MLEventQos?
     
     //the trigger date of the event
-    var e_triggerDate: TimeInterval?
+    var e_triggerDate: Date?
     
     //the event repeat type.
     var e_repeatType: MLEventRepeatScheme?
@@ -35,7 +35,7 @@ struct MLEvent {
     var e_isAlarm: Bool = false
     
     //the alarm fire date fo the event
-    var e_alarmDate: TimeInterval?
+    var e_alarmDate: Date?
 
     //the alarm repeat type
     var e_alarmRepeatType: MLEventRepeatScheme?
@@ -56,8 +56,8 @@ struct MLEvent {
          type: MLEventType? = nil,
          qos: MLEventQos? = nil,
          rpt: MLEventRepeatScheme? = nil,
-         trigger: TimeInterval? = nil,
-         alarm: TimeInterval? = nil,
+         trigger: Date? = nil,
+         alarm: Date? = nil,
          note: String? = nil,
          icAdr: String? = nil) {
         

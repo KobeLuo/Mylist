@@ -52,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="-1118" y="-69"/>
         </scene>
-        <!--Editor View Controller-->
+        <!--添加事件-->
         <scene sceneID="Bjw-Ab-h9D">
             <objects>
                 <viewController id="Cla-fO-LIf" customClass="MLEditorViewController" customModule="Mylist" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,14 +74,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GNk-wM-T4N"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Eo3-8E-edf">
-                        <barButtonItem key="rightBarButtonItem" title="Save" style="plain" id="0Al-cc-OGF">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6gZ-eq-hrA">
-                                <rect key="frame" x="276" y="7" width="22" height="22"/>
+                    <navigationItem key="navigationItem" title="添加事件" id="Eo3-8E-edf">
+                        <barButtonItem key="rightBarButtonItem" title="Add" style="plain" id="0Al-cc-OGF">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6gZ-eq-hrA">
+                                <rect key="frame" x="325" y="7" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.94759419935639433" blue="0.98057018819536168" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="saveAction:" destination="Cla-fO-LIf" eventType="touchUpInside" id="6Hy-qj-AUn"/>
                                 </connections>

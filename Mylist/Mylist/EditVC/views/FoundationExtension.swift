@@ -15,3 +15,11 @@ extension TimeInterval {
         return ""
     }
 }
+
+extension Date {
+    
+    func formatDesc() -> String {
+        
+        return ""
+    }
+}

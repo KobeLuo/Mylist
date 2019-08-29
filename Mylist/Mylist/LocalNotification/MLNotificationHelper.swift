@@ -60,12 +60,15 @@ class MLLocalNotification: NSObject {
         content.badge = 0
         
         let date = Date(timeIntervalSinceNow: 15)
-        let calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.chinese)!
-//        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+//        let calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.chinese)!
+//        let triggerDate = calendar.components(NSCalendarUnit(unit: .minute), from: date)
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+        let triggerDate = Calendar.current.dateComponents(calenderComponents(component: .minute), from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
         
 //        let weekday = calendar.component(.weekday, from: date)
-        let triggerDate = calendar.components([.weekday], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+//        let triggerDate = calendar.components([.weekday], from: date)
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
 //        var date = DateComponents()
 //        date.second = 30
 //        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
@@ -88,8 +91,30 @@ class MLLocalNotification: NSObject {
         }
     }
     
-    class func calenderComponents(component: Calendar.Component) -> Set<Calendar.Component> {
+    class func NSCalendarUnit(unit: NSCalendar.Unit) -> NSCalendar.Unit {
         
+        let invoke = { (units: [NSCalendar.Unit]) in
+            
+            units.reduce(NSCalendar.Unit.init(rawValue: 0), {
+                return NSCalendar.Unit.init(rawValue: (UInt($0.rawValue) | UInt($1.rawValue)))
+            })
+        }
+        
+        
+        var units: NSCalendar.Unit
+        switch unit {
+        case .year:     units = invoke([.month,.day,.hour,.minute,.second])
+        case .month:    units = invoke([.day,.hour,.minute,.second])
+        case .day:      units = invoke([.hour,.minute,.second])
+        case .weekday:  units = invoke([.weekday])
+        case .hour:     units = invoke([.minute,.second])
+        case .minute:   units = invoke([.second])
+        default:        units = invoke([.year,.month,.day,.hour,.minute,.second])
+        }
+        return units
+    }
+    class func calenderComponents(component: Calendar.Component) -> Set<Calendar.Component> {
+
         var components: Set<Calendar.Component>
         switch component {
         case .year:     components = [.month,.day,.hour,.minute,.second]
