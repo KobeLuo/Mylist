@@ -26,6 +26,7 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
     var cInvoke: MLContextTypeInvoke?
     var rowHeight: CGFloat = 44
     var disposeBag = DisposeBag()
+    var naviView: UIView!
     var table: UITableView?
     
     override init() {
@@ -96,7 +97,7 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
         case 0: break
         case 1:
             tableView.isScrollEnabled = false
-            MLDatePicker.showDatePicker(inview: tableView) { [weak self] (r) in
+            MLDatePicker.showDatePicker(inview: self.naviView,self.event.e_triggerDate) { [weak self] (r) in
                 
                 if r != nil {
                     
@@ -107,7 +108,7 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
             }
         case 2:
             tableView.isScrollEnabled = false
-            MLPicker.showPicker(inView: tableView, list: MLEvent.e_repeat_list as [T]) { [weak self] (r) in
+            MLPicker.showPicker(inView: self.naviView, list: MLEvent.e_repeat_list as [T]) { [weak self] (r) in
                 
                 if r != nil {
                     
@@ -126,7 +127,7 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
         switch indexPath.row {
         case 0:
             
-            MLPicker.showPicker(inView: tableView, list: MLEvent.e_type_list as [T]) {[weak self] (r) in
+            MLPicker.showPicker(inView: self.naviView, list: MLEvent.e_type_list as [T]) {[weak self] (r) in
                 
                 if r != nil {
                     
@@ -136,9 +137,21 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
                 
                 tableView.isScrollEnabled = true
             }
-        case 1:  tableView.isUserInteractionEnabled = true
+        case 1:
+            
+            MLDatePicker.showDatePicker(inview: self.naviView) { [weak self] (r) in
+                
+                if r != nil {
+                    
+                    self?.event.e_triggerDate = r
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                }
+                
+                tableView.isUserInteractionEnabled = true
+            }
+            
         case 2:
-            MLPicker.showPicker(inView: tableView, list: MLEvent.e_qos_list) { [weak self] (r) in
+            MLPicker.showPicker(inView: self.naviView, list: MLEvent.e_qos_list) { [weak self] (r) in
                 
                 if r != nil {
                     
@@ -149,7 +162,7 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
                 tableView.isScrollEnabled = true
             }
         case 3:
-            MLPicker.showPicker(inView: tableView, list: MLEvent.e_repeat_list) { [weak self] (r) in
+            MLPicker.showPicker(inView: self.naviView, list: MLEvent.e_repeat_list) { [weak self] (r) in
                 
                 if r != nil {
                     

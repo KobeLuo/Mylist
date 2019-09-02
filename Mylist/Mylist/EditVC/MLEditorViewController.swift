@@ -26,6 +26,7 @@ class MLEditorViewController: UIViewController,UITextFieldDelegate,UITextViewDel
         tableView.delegate = tableDelegate
         tableView.dataSource = tableDelegate
         tableDelegate.table = tableView
+        tableDelegate.naviView = self.navigationController?.view
         
         tableView.tableHeaderView = UIView.init(frame: CGRect(0,0,tableView.width,20))
         tableView.reloadData()

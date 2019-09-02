@@ -20,6 +20,9 @@ extension Date {
     
     func formatDesc() -> String {
         
-        return ""
+        let fmt = DateFormatter()
+        fmt.dateFormat = "yyyy年MM月dd日 HH:mm"
+        
+        return fmt.string(from: self)
     }
 }

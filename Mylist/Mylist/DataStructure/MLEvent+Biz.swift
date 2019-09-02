@@ -73,11 +73,11 @@ extension MLEvent {
     
     var e_triggerDate_desc: String {
         
-        if e_alarmDate == nil {
+        if e_triggerDate == nil {
             
             return MLEvent.e_triggerDate_ph
         }
-        return e_alarmDate!.formatDesc()
+        return e_triggerDate!.formatDesc()
     }
     
     var e_isAlarm_desc: String {

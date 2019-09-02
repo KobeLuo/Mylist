@@ -11,12 +11,25 @@ import UIKit
 extension UIView {
     
 // MARK: Position extension
-    var x: CGFloat { get { return self.frame.origin.x } }
-    var y: CGFloat { get { return self.frame.origin.y } }
-    var height: CGFloat { get { return self.frame.size.height } }
-    var width: CGFloat { get { return self.frame.size.width } }
-    var top: CGFloat { get { return self.y } }
-    var left: CGFloat { get { return self.x } }
+    var x: CGFloat {    get { return self.frame.origin.x }
+                        set(v) { self.frame.origin.x = v }
+    }
+    var y: CGFloat {    get { return self.frame.origin.y }
+                        set(v) { self.frame.origin.y = v }
+        
+    }
+    var height: CGFloat {   get { return self.frame.size.height }
+                            set(v) { self.frame.size.height = v }
+    }
+    var width: CGFloat {    get { return self.frame.size.width }
+                            set(v) { self.frame.size.width = v }
+    }
+    var top: CGFloat {  get { return self.y }
+                        set(v) { self.y = v}
+    }
+    var left: CGFloat { get { return self.x }
+                        set(v) { self.x = v }
+    }
     var bottom: CGFloat { get { return self.y + self.height } }
     var right: CGFloat { get { return self.x + self.width } }
     
