@@ -24,11 +24,26 @@ class MLEventDBBiz {
             return
         }
         guard createTableIfNeeded() == nil else { return }
+        
+        db.close()
     }
     //MARK: public methods
-    class func add(event: MLEvent) -> Bool {
+    class func add(event: MLEvent,in type: MLEventStatus) -> Bool {
         
-        print(shared)
+        let queue = shared.dbQueue()
+        let table_name = shared.tableName(type: type)
+        guard table_name != "" else { return false }
+        queue.inDatabase { (cdb) in
+            
+            let ks = shared.tableKeys()
+            let vs = shared.tableValues(event)
+            
+            let sql = """
+                        replace into \(table_name) (\(ks)) values (\(vs))
+                      """
+            print(sql)
+        }
+        
         return false
     }
     
@@ -36,8 +51,6 @@ class MLEventDBBiz {
         
         return false
     }
-    
-    
 }
 
 // db resource
@@ -49,13 +62,66 @@ extension MLEventDBBiz {
         return FMDatabaseQueue(path: MLEventDBBiz.dbPath())!
     }
     
+    func tableKeys() -> String {
+        
+        return """
+                MLEventEntity.sqlKey_id,
+                MLEventEntity.sqlkey_updateDate,
+                MLEventEntity.sqlKey_body,
+                MLEventEntity.sqlKey_title,
+                MLEventEntity.sqlKey_subtitle,
+                MLEventEntity.sqlKey_type,
+                MLEventEntity.sqlKey_qos,
+                MLEventEntity.sqlKey_fireDate,
+                MLEventEntity.sqlKey_repeatType,
+                MLEventEntity.sqlKey_isAlarm,
+                MLEventEntity.sqlKey_alarmDate,
+                MLEventEntity.sqlKey_note,
+                MLEventEntity.sqlKey_icon,
+                MLEventEntity.sqlKey_status
+               """
+    }
+    
+    func tableValues(_ event: MLEvent) -> String {
+        
+        let str = """
+                    '\(event.e_id)',
+                  """
+        return str
+    }
+    
+    /**
+     NSString *sql = FmtStr(@"DELETE FROM %@ WHERE %@='%@'",
+     tablename,
+     sqlkey_rePath,
+     path);
+     
+     NSString *sql = FmtStr(@"SELECT * FROM %@ where %@='%@'",
+     tablename,
+     sqlkey_cacheKey,
+     [NDAgentCacheInfo rootPathKey]);
+     
+     NSString *sql = FmtStr(@"SELECT * FROM %@ where %@='%@'",
+     tablename,
+     sqlkey_cacheKey,
+     [NDAgentCacheInfo hostBundleIdKey]);
+     **/
+    
+    
+    func generateUpdateDate() -> String {
+        
+        return Date().dbDesc()
+    }
+    
     func createTableIfNeeded() -> NSError? {
         
-        let biz = MLEventDBBiz()
-        // create event table
-        var tableName = biz.tableName(type: .es_nml)
-        var createSql = """
-        CREATE TABLE IF NOT EXISTS '\(tableName)' (
+        var err: String?
+        [MLEventStatus.es_nml,.es_cpl,.es_epr].forEach { (type) in
+         
+            // create event table
+            let tableName = self.tableName(type: type)
+            let createSql = """
+            CREATE TABLE IF NOT EXISTS '\(tableName)' (
             '\(MLEventEntity.sqlKey_id)' INTEGER PRIMARY KEY,
             '\(MLEventEntity.sqlkey_updateDate)' TEXT,
             '\(MLEventEntity.sqlKey_body)' TEXT,
@@ -69,17 +135,23 @@ extension MLEventDBBiz {
             '\(MLEventEntity.sqlKey_alarmDate)' TEXT,
             '\(MLEventEntity.sqlKey_note)' TEXT,
             '\(MLEventEntity.sqlKey_icon)' TEXT,
-            '\(MLEventEntity.sqlKey_status)' INTEGER,
-        )
-        """
+            '\(MLEventEntity.sqlKey_status)' INTEGER)
+            """
+
+            if db.executeStatements(createSql) == false {
+                
+                err = "create table:\(tableName) error"
+                return
+            }else {
+                
+                print("create table success: \(tableName)")
+            }
+        }
         
-        print(createSql)
-        
-        // create completed table
-        tableName = biz.tableName(type: .es_cpl)
-        
-        // create expired table
-        tableName = biz.tableName(type: .es_epr)
+        if err != nil {
+            
+            return NSError(domain: err!, code: 0, userInfo: nil)
+        }
         
         return nil
     }

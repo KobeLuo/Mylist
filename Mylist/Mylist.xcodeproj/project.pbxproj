@@ -30,6 +30,8 @@
 		4ADB18B323166C5E002A8C5E /* credential.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB18B223166C5E002A8C5E /* credential.wav */; };
 		4ADB18B523166D1E002A8C5E /* MLEventType+Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB18B423166D1E002A8C5E /* MLEventType+Sound.swift */; };
 		4ADB18B723167055002A8C5E /* payDebt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB18B623167055002A8C5E /* payDebt.wav */; };
+		4ADB18E7231D0AE2002A8C5E /* MLEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB18E5231D0AE2002A8C5E /* MLEntity.swift */; };
+		4ADB18E8231D0AE2002A8C5E /* MLEventDBBiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB18E6231D0AE2002A8C5E /* MLEventDBBiz.swift */; };
 		4AFD56FB230CE84C00D3DF83 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F7230CE84C00D3DF83 /* RxSwift.framework */; };
 		4AFD56FC230CE84C00D3DF83 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F8230CE84C00D3DF83 /* RxAtomic.framework */; };
 		4AFD56FD230CE84C00D3DF83 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F9230CE84C00D3DF83 /* RxBlocking.framework */; };
@@ -83,6 +85,8 @@
 		4ADB18B223166C5E002A8C5E /* credential.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = credential.wav; sourceTree = "<group>"; };
 		4ADB18B423166D1E002A8C5E /* MLEventType+Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MLEventType+Sound.swift"; sourceTree = "<group>"; };
 		4ADB18B623167055002A8C5E /* payDebt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = payDebt.wav; sourceTree = "<group>"; };
+		4ADB18E5231D0AE2002A8C5E /* MLEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLEntity.swift; sourceTree = "<group>"; };
+		4ADB18E6231D0AE2002A8C5E /* MLEventDBBiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLEventDBBiz.swift; sourceTree = "<group>"; };
 		4AFD56F7230CE84C00D3DF83 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		4AFD56F8230CE84C00D3DF83 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
 		4AFD56F9230CE84C00D3DF83 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 		4A1B50F32315203B001244E9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4ADB18E4231D0AE2002A8C5E /* db */,
 				4ADB18AB231665B0002A8C5E /* Audios */,
 				4A1B50FA23161FEA001244E9 /* AppDelegate.swift */,
 				4A1B50F823161FE9001244E9 /* MainViewController.swift */,
@@ -232,6 +237,15 @@
 				4ADB18B223166C5E002A8C5E /* credential.wav */,
 			);
 			path = Audios;
+			sourceTree = "<group>";
+		};
+		4ADB18E4231D0AE2002A8C5E /* db */ = {
+			isa = PBXGroup;
+			children = (
+				4ADB18E5231D0AE2002A8C5E /* MLEntity.swift */,
+				4ADB18E6231D0AE2002A8C5E /* MLEventDBBiz.swift */,
+			);
+			path = db;
 			sourceTree = "<group>";
 		};
 		4AFD56F6230CE84C00D3DF83 /* Frameworks */ = {
@@ -404,11 +418,13 @@
 				4ADB18B523166D1E002A8C5E /* MLEventType+Sound.swift in Sources */,
 				4A1B50FC23161FEA001244E9 /* AppDelegate.swift in Sources */,
 				4AC182E2230D289F000B6BFE /* MLContextEditorVC.swift in Sources */,
+				4ADB18E8231D0AE2002A8C5E /* MLEventDBBiz.swift in Sources */,
 				4A1B50FB23161FEA001244E9 /* MainViewController.swift in Sources */,
 				4AC2368F21BA179500D50F1E /* MLEvent.swift in Sources */,
 				4A2090EE221CED31003E9386 /* MLEditorViewController.swift in Sources */,
 				1832A93D23169FA400F59946 /* MLDatePicker.swift in Sources */,
 				4AC182E0230D2156000B6BFE /* ViewExtension.swift in Sources */,
+				4ADB18E7231D0AE2002A8C5E /* MLEntity.swift in Sources */,
 				4AC182DC230D1548000B6BFE /* MLEditorTableViewDelegate.swift in Sources */,
 				1832A9392315675A00F59946 /* MLPicker.swift in Sources */,
 				1832A93B2315772D00F59946 /* MLTypeDefine.swift in Sources */,

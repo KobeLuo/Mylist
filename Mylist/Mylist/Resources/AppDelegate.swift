@@ -23,6 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MLLocalNotification.getAllDeliveredNotification()
 //        MLLocalNotification.createNotification(event)
 //        test()
+//        print(MLEventDBBiz.add(event: MLEvent()))
+        
+        let date = Date()
+        print("current Date: \(date.description)")
+        let dateDesc = date.dbDesc()
+        print("db desc:\(dateDesc)")
+        let newDate = dateDesc.dateFromDBDesc()
+        print("new date: \(newDate?.description)")
+        
         
         return true
     }

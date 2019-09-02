@@ -25,4 +25,24 @@ extension Date {
         
         return fmt.string(from: self)
     }
+    
+    func dbDesc() -> String {
+        
+        let fmt = DateFormatter()
+        fmt.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        return fmt.string(from: self)
+    }
+}
+
+extension String {
+    
+    func dateFromDBDesc() -> Date? {
+        
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        format.locale = Locale(identifier: "en_US_POSIX")
+        let date = format.date(from: self)
+        return date
+    }
 }
