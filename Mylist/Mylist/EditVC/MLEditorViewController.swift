@@ -95,7 +95,6 @@ class MLEditorViewController: UIViewController,UITextFieldDelegate,UITextViewDel
                 return
             }
         }
-        
     }
     
     // MARK: push context viewcontroller

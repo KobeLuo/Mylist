@@ -33,6 +33,8 @@
 		4ADB18E7231D0AE2002A8C5E /* MLEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB18E5231D0AE2002A8C5E /* MLEntity.swift */; };
 		4ADB18E8231D0AE2002A8C5E /* MLEventDBBiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB18E6231D0AE2002A8C5E /* MLEventDBBiz.swift */; };
 		4ADB18EA231E48BD002A8C5E /* MLDBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB18E9231E48BD002A8C5E /* MLDBError.swift */; };
+		4ADB18EC231E65A9002A8C5E /* MLALert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB18EB231E65A9002A8C5E /* MLALert.swift */; };
+		4ADB18EE231E6896002A8C5E /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB18ED231E6896002A8C5E /* ViewControllerExtension.swift */; };
 		4AFD56FB230CE84C00D3DF83 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F7230CE84C00D3DF83 /* RxSwift.framework */; };
 		4AFD56FC230CE84C00D3DF83 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F8230CE84C00D3DF83 /* RxAtomic.framework */; };
 		4AFD56FD230CE84C00D3DF83 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F9230CE84C00D3DF83 /* RxBlocking.framework */; };
@@ -89,6 +91,8 @@
 		4ADB18E5231D0AE2002A8C5E /* MLEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLEntity.swift; sourceTree = "<group>"; };
 		4ADB18E6231D0AE2002A8C5E /* MLEventDBBiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLEventDBBiz.swift; sourceTree = "<group>"; };
 		4ADB18E9231E48BD002A8C5E /* MLDBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLDBError.swift; sourceTree = "<group>"; };
+		4ADB18EB231E65A9002A8C5E /* MLALert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLALert.swift; sourceTree = "<group>"; };
+		4ADB18ED231E6896002A8C5E /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		4AFD56F7230CE84C00D3DF83 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		4AFD56F8230CE84C00D3DF83 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
 		4AFD56F9230CE84C00D3DF83 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
@@ -164,8 +168,10 @@
 			children = (
 				4AC182DF230D2156000B6BFE /* ViewExtension.swift */,
 				4A56CE3B23136F0200195C05 /* FoundationExtension.swift */,
+				4ADB18ED231E6896002A8C5E /* ViewControllerExtension.swift */,
 				1832A9382315675A00F59946 /* MLPicker.swift */,
 				1832A93C23169FA400F59946 /* MLDatePicker.swift */,
+				4ADB18EB231E65A9002A8C5E /* MLALert.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -419,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ADB18B523166D1E002A8C5E /* MLEventType+Sound.swift in Sources */,
+				4ADB18EC231E65A9002A8C5E /* MLALert.swift in Sources */,
 				4A1B50FC23161FEA001244E9 /* AppDelegate.swift in Sources */,
 				4AC182E2230D289F000B6BFE /* MLContextEditorVC.swift in Sources */,
 				4ADB18E8231D0AE2002A8C5E /* MLEventDBBiz.swift in Sources */,
@@ -430,6 +437,7 @@
 				4ADB18E7231D0AE2002A8C5E /* MLEntity.swift in Sources */,
 				4AC182DC230D1548000B6BFE /* MLEditorTableViewDelegate.swift in Sources */,
 				1832A9392315675A00F59946 /* MLPicker.swift in Sources */,
+				4ADB18EE231E6896002A8C5E /* ViewControllerExtension.swift in Sources */,
 				1832A93B2315772D00F59946 /* MLTypeDefine.swift in Sources */,
 				4A16AAA52315157F00BEDC5C /* MLEvent+Biz.swift in Sources */,
 				4A56CE3C23136F0200195C05 /* FoundationExtension.swift in Sources */,
