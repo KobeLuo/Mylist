@@ -10,8 +10,8 @@ import Foundation
 
 protocol MLEntity {
   
-    var updateTime: TimeInterval! {get set}
-    
+    var updateTime: String! {get set}
+    var event: MLEvent! { get set }
     func primaryKey() -> String
     func tableName() -> String
 }
@@ -19,7 +19,7 @@ protocol MLEntity {
 class MLEventEntity: MLEntity {
     
     var event: MLEvent!
-    var updateTime: TimeInterval!
+    var updateTime: String!
     
     func primaryKey() -> String {
         
@@ -66,6 +66,12 @@ extension MLEventEntity {
     static let sqlKey_note          = "note"
     static let sqlKey_icon          = "icon"
     static let sqlKey_status        = "status"
+}
+
+enum MLTableName {
     
+    case list
+    case completedList
+    case expiredList
 }
 

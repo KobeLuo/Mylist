@@ -33,6 +33,16 @@ extension Date {
         
         return fmt.string(from: self)
     }
+    
+    func isExpired() -> Bool {
+        
+        let current = Date()
+        if self.timeIntervalSinceReferenceDate < current.timeIntervalSinceReferenceDate {
+            
+            return true
+        }
+        return false
+    }
 }
 
 extension String {

@@ -32,6 +32,7 @@
 		4ADB18B723167055002A8C5E /* payDebt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB18B623167055002A8C5E /* payDebt.wav */; };
 		4ADB18E7231D0AE2002A8C5E /* MLEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB18E5231D0AE2002A8C5E /* MLEntity.swift */; };
 		4ADB18E8231D0AE2002A8C5E /* MLEventDBBiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB18E6231D0AE2002A8C5E /* MLEventDBBiz.swift */; };
+		4ADB18EA231E48BD002A8C5E /* MLDBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB18E9231E48BD002A8C5E /* MLDBError.swift */; };
 		4AFD56FB230CE84C00D3DF83 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F7230CE84C00D3DF83 /* RxSwift.framework */; };
 		4AFD56FC230CE84C00D3DF83 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F8230CE84C00D3DF83 /* RxAtomic.framework */; };
 		4AFD56FD230CE84C00D3DF83 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AFD56F9230CE84C00D3DF83 /* RxBlocking.framework */; };
@@ -87,6 +88,7 @@
 		4ADB18B623167055002A8C5E /* payDebt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = payDebt.wav; sourceTree = "<group>"; };
 		4ADB18E5231D0AE2002A8C5E /* MLEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLEntity.swift; sourceTree = "<group>"; };
 		4ADB18E6231D0AE2002A8C5E /* MLEventDBBiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLEventDBBiz.swift; sourceTree = "<group>"; };
+		4ADB18E9231E48BD002A8C5E /* MLDBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLDBError.swift; sourceTree = "<group>"; };
 		4AFD56F7230CE84C00D3DF83 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		4AFD56F8230CE84C00D3DF83 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
 		4AFD56F9230CE84C00D3DF83 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				4ADB18E5231D0AE2002A8C5E /* MLEntity.swift */,
 				4ADB18E6231D0AE2002A8C5E /* MLEventDBBiz.swift */,
+				4ADB18E9231E48BD002A8C5E /* MLDBError.swift */,
 			);
 			path = db;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				4A16AAA52315157F00BEDC5C /* MLEvent+Biz.swift in Sources */,
 				4A56CE3C23136F0200195C05 /* FoundationExtension.swift in Sources */,
 				4A2090F1221CF984003E9386 /* MLNotificationHelper.swift in Sources */,
+				4ADB18EA231E48BD002A8C5E /* MLDBError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

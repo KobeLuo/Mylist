@@ -48,6 +48,54 @@ class MLEditorViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     }
     
     @IBAction func saveAction(_ sender: Any) {
+        
+        var str = ""
+        let event = tableDelegate.event!
+        guard event.e_title != nil else {
+            
+            str = event.e_title_desc
+            return
+        }
+        
+        guard event.e_type != nil else {
+            
+            str = event.e_type_desc
+            return
+        }
+        
+        guard event.e_qos != nil else {
+            
+            str = event.e_qos_desc
+            return
+        }
+        
+        guard event.e_triggerDate != nil else {
+            
+            str = event.e_triggerDate_desc
+            return
+        }
+        
+        guard event.e_repeatType != nil else {
+            
+            str = event.e_repeat_desc
+            return
+        }
+        
+        if event.e_isAlarm == true {
+            
+            guard tableDelegate.event.e_alarmDate != nil else {
+                
+                str = tableDelegate.event.e_alarmDate_desc
+                return
+            }
+            
+            guard tableDelegate.event.e_alarmRepeatType != nil else {
+                
+                str = tableDelegate.event.e_alarmType_desc
+                return
+            }
+        }
+        
     }
     
     // MARK: push context viewcontroller

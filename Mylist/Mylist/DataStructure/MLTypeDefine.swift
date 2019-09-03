@@ -14,14 +14,41 @@ protocol MLTypeProtocol {
     func typeDesc() -> String
 }
 
-enum MLEventType: Equatable,MLTypeProtocol {
-    
+enum MLEventType: RawRepresentable, Equatable, MLTypeProtocol {
+
     case et_btd //birthday
     case et_cdt //credit
     case et_pdt //pay debt
     case et_nml //normal
     case et_ctd //count down
     case et_amb //alarm bell
+    
+    typealias RawValue = Int32
+    
+    var rawValue: RawValue {
+        
+        switch self {
+        case .et_btd:   return 1
+        case .et_cdt:   return 2
+        case .et_pdt:   return 3
+        case .et_ctd:   return 4
+        case .et_nml:   return 5
+        case .et_amb:   return 6
+        }
+    }
+    
+    init?(rawValue: RawValue) {
+        switch rawValue {
+        case 1:     self = MLEventType.et_btd
+        case 2:     self = MLEventType.et_cdt
+        case 3:     self = MLEventType.et_pdt
+        case 4:     self = MLEventType.et_ctd
+        case 5:     self = MLEventType.et_nml
+        case 6:     self = MLEventType.et_amb
+        default:    self = MLEventType.et_nml
+            
+        }
+    }
     
     static func ==(lp: MLEventType, rp: MLEventType) -> Bool {
         
@@ -43,32 +70,33 @@ enum MLEventType: Equatable,MLTypeProtocol {
     func typeDesc() -> String { return desc }
 }
 
-enum MLEventQos: RawRepresentable, Equatable, MLTypeProtocol {
+enum MLEventQos: RawRepresentable, MLTypeProtocol {
     
     case eq_egy //emergency
     case eq_ipt //important
     case eq_cmn //common
     case eq_lwl //lower level
     
-    typealias RawValue = Int8
+    typealias RawValue = Int32
     
     init?(rawValue: RawValue) {
         
         switch rawValue {
-        case 1 << 0:    self = MLEventQos.eq_lwl
-        case 1 << 2:    self = MLEventQos.eq_ipt
-        case 1 << 3:    self = MLEventQos.eq_egy
-        default:        self = MLEventQos.eq_cmn
+        case 0: self = MLEventQos.eq_lwl
+        case 2: self = MLEventQos.eq_ipt
+        case 3: self = MLEventQos.eq_egy
+        case 1: self = MLEventQos.eq_cmn
+        default:self = MLEventQos.eq_cmn
         }
     }
     
     var rawValue: RawValue {
         
         switch self {
-        case .eq_egy: return 1 << 3
-        case .eq_ipt: return 1 << 2
-        case .eq_cmn: return 1 << 1
-        case .eq_lwl: return 1 << 0
+        case .eq_egy: return 3
+        case .eq_ipt: return 2
+        case .eq_cmn: return 1
+        case .eq_lwl: return 0
         }
     }
     
@@ -85,7 +113,7 @@ enum MLEventQos: RawRepresentable, Equatable, MLTypeProtocol {
     func typeDesc() -> String { return desc }
 }
 
-enum MLEventRepeatScheme: MLTypeProtocol {
+enum MLEventRepeatScheme: RawRepresentable, MLTypeProtocol {
     
     case er_nr //never
     case er_eh //every hour
@@ -93,6 +121,30 @@ enum MLEventRepeatScheme: MLTypeProtocol {
     case er_ew //every week
     case er_em //every month
     case er_ey //every year
+    
+    typealias RawValue = Int32
+    init?(rawValue: RawValue) {
+        switch rawValue {
+        case 1:     self = MLEventRepeatScheme.er_nr
+        case 2:     self = MLEventRepeatScheme.er_eh
+        case 3:     self = MLEventRepeatScheme.er_ed
+        case 4:     self = MLEventRepeatScheme.er_ew
+        case 5:     self = MLEventRepeatScheme.er_em
+        case 6:     self = MLEventRepeatScheme.er_ey
+        default:    self = MLEventRepeatScheme.er_nr
+        }
+    }
+    var rawValue: RawValue {
+        
+        switch self {
+        case .er_nr:   return 1
+        case .er_eh:   return 2
+        case .er_ed:   return 3
+        case .er_ew:   return 4
+        case .er_em:   return 5
+        case .er_ey:   return 6
+        }
+    }
     
     var desc: String {
         
@@ -109,12 +161,34 @@ enum MLEventRepeatScheme: MLTypeProtocol {
     func typeDesc() -> String { return desc }
 }
 
-enum MLEventStatus: MLTypeProtocol {
+enum MLEventStatus: RawRepresentable, MLTypeProtocol {
     
     case es_nml // event statsu normal
     case es_aph // event status approach the trigger date
     case es_cpl // event completed
     case es_epr // event did expire
+    
+    typealias RawValue = Int32
+    init?(rawValue: RawValue) {
+        
+        switch rawValue {
+        case 1:     self = .es_nml
+        case 2:     self = .es_aph
+        case 3:     self = .es_cpl
+        case 4:     self = .es_epr
+        default:    self = .es_nml
+        }
+    }
+    
+    var rawValue: RawValue {
+        
+        switch self {
+        case .es_nml:   return 1
+        case .es_aph:   return 2
+        case .es_cpl:   return 3
+        case .es_epr:   return 4
+        }
+    }
     
     var desc: String {
         
@@ -134,15 +208,15 @@ enum MLEventAlarmScheme: RawRepresentable, MLTypeProtocol {
     case ea_nr //never alarm
     case ea_tb1h //before event trigg one hours
     case ea_tbhd //before event trigg half day
-    case ea_tbnd(days: Int) //before event trigg n days
-    case ea_tbnw(weeks: Int) //before event trigg n week
-    case ea_tbnm(months: Int) //before event trigg n month
+    case ea_tbnd(days: Int32) //before event trigg n days
+    case ea_tbnw(weeks: Int32) //before event trigg n week
+    case ea_tbnm(months: Int32) //before event trigg n month
     
-    static let od: Int = 10 //offset days
-    static let ow: Int = 50 //offset weeks
-    static let om: Int = 60 //offset months
+    static let od: Int32 = 10 //offset days
+    static let ow: Int32 = 50 //offset weeks
+    static let om: Int32 = 60 //offset months
     
-    typealias RawValue = Int
+    typealias RawValue = Int32
     init?(rawValue: RawValue) {
         
         switch rawValue {
@@ -155,7 +229,7 @@ enum MLEventAlarmScheme: RawRepresentable, MLTypeProtocol {
         }
     }
     
-    var rawValue: Int {
+    var rawValue: RawValue {
         
         switch self {
         case .ea_nr:                    return 0
