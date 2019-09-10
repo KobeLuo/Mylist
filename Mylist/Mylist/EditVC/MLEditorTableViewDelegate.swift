@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 typealias MLContextInvoke = (String?) -> Void
 typealias MLContextTypeInvoke = (MLEditorContextType) -> Void
@@ -25,7 +23,7 @@ class MLEditorTableDelegate:NSObject,UITableViewDelegate,UITableViewDataSource {
     var event: MLEvent!
     var cInvoke: MLContextTypeInvoke?
     var rowHeight: CGFloat = 44
-    var disposeBag = DisposeBag()
+//    var disposeBag = DisposeBag()
     var naviView: UIView!
     var table: UITableView?
     

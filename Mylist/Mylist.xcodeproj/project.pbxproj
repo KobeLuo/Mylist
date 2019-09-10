@@ -25,6 +25,8 @@
 		4AC235CE21B775F200D50F1E /* MylistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235CD21B775F200D50F1E /* MylistTests.swift */; };
 		4AC235D921B775F200D50F1E /* MylistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC235D821B775F200D50F1E /* MylistUITests.swift */; };
 		4AC2368F21BA179500D50F1E /* MLEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2368E21BA179500D50F1E /* MLEvent.swift */; };
+		4AD04B082327AD9000D9E1C0 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD04B072327AD9000D9E1C0 /* FMDB.framework */; };
+		4AD04B0C2327AE2600D9E1C0 /* FMDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4AD04B0B2327AE2500D9E1C0 /* FMDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4ADB18AF23166693002A8C5E /* surprise.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB18AE23166693002A8C5E /* surprise.aiff */; };
 		4ADB18B123166737002A8C5E /* bb.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB18B023166737002A8C5E /* bb.wav */; };
 		4ADB18B323166C5E002A8C5E /* credential.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB18B223166C5E002A8C5E /* credential.wav */; };
@@ -58,6 +60,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4AD04B092327ADB000D9E1C0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4AD04B0C2327AE2600D9E1C0 /* FMDB.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1832A9382315675A00F59946 /* MLPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLPicker.swift; sourceTree = "<group>"; };
 		1832A93A2315772D00F59946 /* MLTypeDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLTypeDefine.swift; sourceTree = "<group>"; };
@@ -83,6 +98,8 @@
 		4AC235D821B775F200D50F1E /* MylistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MylistUITests.swift; sourceTree = "<group>"; };
 		4AC235DA21B775F200D50F1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AC2368E21BA179500D50F1E /* MLEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLEvent.swift; sourceTree = "<group>"; };
+		4AD04B072327AD9000D9E1C0 /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = Carthage/Build/Mac/FMDB.framework; sourceTree = "<group>"; };
+		4AD04B0B2327AE2500D9E1C0 /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = Carthage/Build/Mac/FMDB.framework; sourceTree = "<group>"; };
 		4ADB18AE23166693002A8C5E /* surprise.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = surprise.aiff; sourceTree = "<group>"; };
 		4ADB18B023166737002A8C5E /* bb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bb.wav; sourceTree = "<group>"; };
 		4ADB18B223166C5E002A8C5E /* credential.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = credential.wav; sourceTree = "<group>"; };
@@ -104,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AD04B082327AD9000D9E1C0 /* FMDB.framework in Frameworks */,
 				4AFD56FB230CE84C00D3DF83 /* RxSwift.framework in Frameworks */,
 				4AFD56FC230CE84C00D3DF83 /* RxAtomic.framework in Frameworks */,
 				4AFD56FD230CE84C00D3DF83 /* RxBlocking.framework in Frameworks */,
@@ -179,6 +197,7 @@
 		4AC235AC21B775F000D50F1E = {
 			isa = PBXGroup;
 			children = (
+				4AD04B0B2327AE2500D9E1C0 /* FMDB.framework */,
 				4AC235B721B775F000D50F1E /* Mylist */,
 				4AC235CC21B775F200D50F1E /* MylistTests */,
 				4AC235D721B775F200D50F1E /* MylistUITests */,
@@ -260,6 +279,7 @@
 		4AFD56F6230CE84C00D3DF83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AD04B072327AD9000D9E1C0 /* FMDB.framework */,
 				4AFD56F8230CE84C00D3DF83 /* RxAtomic.framework */,
 				4AFD56F9230CE84C00D3DF83 /* RxBlocking.framework */,
 				4AFD56FA230CE84C00D3DF83 /* RxCocoa.framework */,
@@ -279,6 +299,7 @@
 				4AC235B221B775F000D50F1E /* Frameworks */,
 				4AC235B321B775F000D50F1E /* Resources */,
 				4AFD56FF230CE85C00D3DF83 /* ShellScript */,
+				4AD04B092327ADB000D9E1C0 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -621,6 +642,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
@@ -649,6 +671,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
