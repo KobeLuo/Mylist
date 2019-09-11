@@ -83,7 +83,7 @@ class MLEventDBBiz {
         var events: [MLEvent]?
         var err: MLDBError?
         
-        let list = fetchList(type: .list)
+        let list = fetchEntityList(type: .list)
         for entity in list {
             
             let fireDate = entity.event.e_triggerDate
@@ -105,7 +105,7 @@ class MLEventDBBiz {
         
         var err: MLDBError?
         
-        let list = fetchList(type: .list)
+        let list = fetchEntityList(type: .list)
         for entity in list {
             
             let fireDate = entity.event.e_triggerDate
@@ -125,7 +125,23 @@ class MLEventDBBiz {
         return err
     }
     
-    class func fetchList(type: MLTableName) -> [MLEventEntity] {
+    class func fetchAllEvents() -> [MLEvent] {
+        
+        return [MLTableName.list,.completedList,.expiredList].map({ (name) -> [MLEvent] in
+            
+            return self.fetchEvents(type: name)
+        }).reduce([MLEvent](), { return $0 + $1
+        })
+    }
+    class func fetchEvents(type: MLTableName) -> [MLEvent] {
+        
+        return fetchEntityList(type: type).map({ (entity) -> MLEvent in
+            
+            return entity.event
+        })
+    }
+    
+    fileprivate class func fetchEntityList(type: MLTableName) -> [MLEventEntity] {
         
         var list = [MLEventEntity]()
         

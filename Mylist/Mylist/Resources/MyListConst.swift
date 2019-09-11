@@ -10,3 +10,8 @@ import Foundation
 import UIKit
 let MLMainColor = UIColor(0xC262D3)
 let MLMainWhiteColor = UIColor(0xFFFFFF,0.9)
+
+let MLMainPageDataKey = "MainPageData"
+
+
+typealias MLEventIdType = Int16
