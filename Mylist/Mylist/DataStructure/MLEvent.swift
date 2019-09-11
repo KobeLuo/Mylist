@@ -80,10 +80,14 @@ struct MLEvent {
     static func generateEventId() -> Int16 {
         
         let key = "eventIdSerial"
-        guard let id = UserDefaults.standard.value(forKey: key) as? Int16 else {
+        guard var id = UserDefaults.standard.value(forKey: key) as? Int16 else {
             
             UserDefaults.standard.set(1, forKey: key); return 1
         }
-        return id + 1
+        
+        id = id + 1
+        UserDefaults.standard.set(id, forKey: key)
+        
+        return id
     }
 }

@@ -15,16 +15,17 @@ class MLAlert: NSObject {
     
     class func alert(title: String,
                      message: String,
-                     invoke:MLAlertActionInvoke?) {
+                     _ invoke:MLAlertActionInvoke? = nil) {
         
         let c = UIAlertController(title: title, message: message, preferredStyle:.alert)
-        if invoke != nil {
+        c.addAction(UIAlertAction(title: "OK", style: .default, handler: { (act) in
             
-            c.addAction(UIAlertAction(title: title, style: .default, handler: { (act) in
+            if invoke != nil {
                 
                 invoke!(act)
-            }))
-        }
+            }
+        }))
+        
         
         if var topvc = UIApplication.shared.keyWindow?.rootViewController {
             while let presentedViewController = topvc.presentedViewController {

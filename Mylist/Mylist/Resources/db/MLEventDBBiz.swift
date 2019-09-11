@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import FMDB
 
 class MLEventDBBiz {
     
@@ -29,7 +28,9 @@ class MLEventDBBiz {
     }
     
     //MARK: public methods
-    class func add(event: MLEvent, in type: MLTableName) -> MLDBError? {
+    /** Added it if event not exist, otherwise update it use new event.
+     */
+    class func update(event: MLEvent, in type: MLTableName) -> MLDBError? {
         
         var entity: MLEntity = MLEventEntity()
         entity.event = event
@@ -116,7 +117,7 @@ class MLEventDBBiz {
                 err = delete(event: entity.event, in: .list)
                 if err != nil { print(err!.description) }
                 
-                err = add(event: entity.event, in: .expiredList)
+                err = update(event: entity.event, in: .expiredList)
                 if err != nil { print(err!.description) }
             }
         }
@@ -197,44 +198,44 @@ extension MLEventDBBiz {
     
     func tableKeys() -> String {
         
-        return """
-                \(MLEventEntity.sqlKey_id),
-                \(MLEventEntity.sqlkey_updateDate),
-                \(MLEventEntity.sqlKey_body),
-                \(MLEventEntity.sqlKey_title),
-                \(MLEventEntity.sqlKey_subtitle),
-                \(MLEventEntity.sqlKey_type),
-                \(MLEventEntity.sqlKey_qos),
-                \(MLEventEntity.sqlKey_fireDate),
-                \(MLEventEntity.sqlKey_repeatType),
-                \(MLEventEntity.sqlKey_isAlarm),
-                \(MLEventEntity.sqlKey_alarmDate),
-                \(MLEventEntity.sqlKey_note),
-                \(MLEventEntity.sqlKey_icon),
-                \(MLEventEntity.sqlKey_status)
-               """
+        return  [MLEventEntity.sqlKey_id,
+                MLEventEntity.sqlkey_updateDate,
+                MLEventEntity.sqlKey_body,
+                MLEventEntity.sqlKey_title,
+                MLEventEntity.sqlKey_subtitle,
+                MLEventEntity.sqlKey_type,
+                MLEventEntity.sqlKey_qos,
+                MLEventEntity.sqlKey_fireDate,
+                MLEventEntity.sqlKey_repeatType,
+                MLEventEntity.sqlKey_isAlarm,
+                MLEventEntity.sqlKey_alarmDate,
+                MLEventEntity.sqlKey_note,
+                MLEventEntity.sqlKey_icon,
+                MLEventEntity.sqlKey_status
+            ].reduce("", { return $0 == "" ? $1 : $0 + "," + $1
+            })
     }
     
     func tableValues(_ entity: MLEntity) -> String {
         
         let event = entity.event!
-        let str = """
-                    '\(event.e_id)',
-                    '\(entity.updateTime)',
-                    '\(event.e_body ?? "")',
-                    '\(event.e_title ?? "")',
-                    '\(event.e_subtitle ?? "")',
-                    '\(event.e_type!)',
-                    '\(event.e_qos!)',
-                    '\(event.e_triggerDate!.dbDesc())',
-                    '\(event.e_repeatType!)',
-                    '\(event.e_isAlarm)',
-                    '\(event.e_alarmDate?.dbDesc() ?? "")',
-                    '\(event.e_note ?? "")',
-                    '\(event.e_icAdr ?? "")',
-                    '\(event.e_state!)',
-                  """
-        return str
+        
+        let  arr: [String] = ["\(event.e_id)",
+                entity.updateTime,
+                event.e_body ?? "",
+                event.e_title ?? "",
+                event.e_subtitle ?? "",
+                "\(event.e_type!.rawValue)",
+                "\(event.e_qos!.rawValue)",
+                event.e_triggerDate!.dbDesc(),
+                "\(event.e_repeatType!.rawValue)",
+                "\(event.e_isAlarm.hashValue)",
+                event.e_alarmDate?.dbDesc() ?? "",
+                event.e_note ?? "",
+                event.e_icAdr ?? "",
+                "\(event.e_state!.rawValue)"]
+        return arr.reduce("", { return $0 == "" ? "'\($1)'" : $0 + "," + "'\($1)'"
+        })
     }
     
     func generateUpdateDate() -> String {

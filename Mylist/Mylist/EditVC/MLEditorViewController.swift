@@ -49,36 +49,55 @@ class MLEditorViewController: UIViewController,UITextFieldDelegate,UITextViewDel
     
     @IBAction func saveAction(_ sender: Any) {
         
+        
+        if let msg = eventValidate() {
+            
+            MLAlert.alert(title: "保存失败", message: msg)
+            
+            return
+        }
+        
+        if cacheDB(tableDelegate.event!) {
+            
+            MLAlert.alert(title: "保存成功", message: "", { (act) in
+                
+                    self.navigationController?.popViewController(animated: true)
+                })
+        }
+    }
+    
+    func eventValidate() -> String? {
+        
         var str = ""
         let event = tableDelegate.event!
         guard event.e_title != nil else {
             
             str = event.e_title_desc
-            return
+            return str
         }
         
         guard event.e_type != nil else {
             
             str = event.e_type_desc
-            return
+            return str
         }
         
         guard event.e_qos != nil else {
             
             str = event.e_qos_desc
-            return
+            return str
         }
         
         guard event.e_triggerDate != nil else {
             
             str = event.e_triggerDate_desc
-            return
+            return str
         }
         
         guard event.e_repeatType != nil else {
             
             str = event.e_repeat_desc
-            return
+            return str
         }
         
         if event.e_isAlarm == true {
@@ -86,15 +105,33 @@ class MLEditorViewController: UIViewController,UITextFieldDelegate,UITextViewDel
             guard tableDelegate.event.e_alarmDate != nil else {
                 
                 str = tableDelegate.event.e_alarmDate_desc
-                return
+                return str
             }
             
             guard tableDelegate.event.e_alarmRepeatType != nil else {
                 
                 str = tableDelegate.event.e_alarmType_desc
-                return
+                return str
             }
         }
+        return nil
+    }
+    
+    func cacheDB(_ e: MLEvent) -> Bool {
+        
+        var event = e
+        if event.e_state == nil {
+            
+            event.e_state = MLEventStatus.es_nml
+        }
+        
+        let err = MLEventDBBiz.update(event: event, in: .list)
+        guard err == nil else {
+            
+            LogError(key: .process, detail: "add event to db error:\(err!.description)")
+            return false
+        }
+        return true
     }
     
     // MARK: push context viewcontroller
