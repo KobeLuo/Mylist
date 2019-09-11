@@ -34,10 +34,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNM-r5-VfG">
-                                <rect key="frame" x="49" y="604" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNM-r5-VfG">
+                                <rect key="frame" x="158" y="589" width="58" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="添加事件"/>
+                                <state key="normal" image="Add.png"/>
                                 <connections>
                                     <segue destination="Cla-fO-LIf" kind="push" id="rZV-X1-XmF"/>
                                 </connections>
@@ -47,6 +47,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="lJh-RZ-Beo"/>
+                    <connections>
+                        <outlet property="addBtn" destination="TNM-r5-VfG" id="yuO-Fq-Xrz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,4 +134,7 @@
             <point key="canvasLocation" x="372" y="-69"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Add.png" width="58" height="58"/>
+    </resources>
 </document>

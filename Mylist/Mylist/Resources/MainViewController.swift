@@ -9,10 +9,12 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    @IBOutlet weak var addBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        addBtn.addAnimatorWhenTapped()
     }
 
     override func didReceiveMemoryWarning() {
