@@ -9,7 +9,9 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
     @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var listTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

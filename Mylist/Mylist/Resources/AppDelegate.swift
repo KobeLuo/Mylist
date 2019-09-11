@@ -16,61 +16,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         MLLocalNotification.registerNotification()
+        configureNavigationBar()
         
-        let event = MLEvent.init(id: 123, title: "demo test", type: .et_pdt, trigger: Date(), alarm: Date())
-//        MLLocalNotification.removeAllDeliverNotification()
-        MLLocalNotification.getAllDeliveredNotification()
-//        MLLocalNotification.createNotification(event)
-//        test()
-//        print(MLEventDBBiz.add(event: MLEvent()))
+        
+        
+        
+        
+        
+        return true
+    }
+
+    func configureNavigationBar() {
+        
+        UINavigationBar.appearance().barTintColor = MLMainColor
+        UINavigationBar.appearance().tintColor = MLMainWhiteColor
+        UINavigationBar.appearance().isTranslucent = false
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: MLMainWhiteColor], for: .normal)
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedStringKey.foregroundColor: MLMainWhiteColor
+        ]
+    }
+    
+    func dateTest() {
         
         let date = Date()
         print("current Date: \(date.description)")
         let dateDesc = date.dbDesc()
         print("db desc:\(dateDesc)")
         let newDate = dateDesc.dateFromDBDesc()
-        print("new date: \(newDate?.description)")
-        
-        
-        return true
-    }
-
-    func test() {
-        
-        let a = 1.24e2
-        print("\(a)")
-        
-        let b = 0xEp3
-        print("\(b)")
-        
-        let h1 = 0xAp0
-        let h2 = 0xA.1p0
-        let h3 = 0xA.2p0
-        let h4 = 0xA.3p0
-        let h5 = 0xA.4p0
-        print("\(h1),\(h2),\(h3),\(h4),\(h5)")
-        
-        // 0xA.BpC = (A+B/16) * power(2,C)
-        let h6 = 0xAp1
-        let h7 = 0xA.1p1
-        let h8 = 0xA.2p1
-        let h9 = 0xA.3p1
-        let h10 = 0xA.4p1
-        print("\(h6),\(h7),\(h8),\(h9),\(h10)")
-        
-        
-        let h11 = 0xAp2
-        let h12 = 0xA.1p-1
-        let h13 = 0xA.2p-1
-        let h14 = 0xA.3p-1
-        let h15 = 0xA.4p-1
-        print("\(h11),\(h12),\(h13),\(h14),\(h15)")
-        
-        let h16 = 0xA.0p1
-        print("\(h16)")
-        
-//        let tooBig: Int8 = Int8.max + 1
-//        print("\(tooBig)")
+        print("new date: \(String(describing: newDate?.description))")
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

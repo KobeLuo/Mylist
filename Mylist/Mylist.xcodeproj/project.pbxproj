@@ -14,6 +14,11 @@
 		4A0AFE482328E2A90017F934 /* Add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0AFE452328E2A90017F934 /* Add@2x.png */; };
 		4A0AFE492328E2A90017F934 /* Add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0AFE462328E2A90017F934 /* Add@3x.png */; };
 		4A0AFE4C2328E3860017F934 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AFE4B2328E3860017F934 /* UIButton+Ext.swift */; };
+		4A0AFE4E2328F1C90017F934 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AFE4D2328F1C90017F934 /* UIColor+Ext.swift */; };
+		4A0AFE502328F5B60017F934 /* MyListConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AFE4F2328F5B60017F934 /* MyListConst.swift */; };
+		4A0AFE542328FAE40017F934 /* birthdayIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0AFE512328FAE30017F934 /* birthdayIcon@2x.png */; };
+		4A0AFE552328FAE40017F934 /* birthdayIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0AFE522328FAE40017F934 /* birthdayIcon.png */; };
+		4A0AFE562328FAE40017F934 /* birthdayIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0AFE532328FAE40017F934 /* birthdayIcon@3x.png */; };
 		4A16AAA52315157F00BEDC5C /* MLEvent+Biz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16AAA32315155200BEDC5C /* MLEvent+Biz.swift */; };
 		4A1B50FB23161FEA001244E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B50F823161FE9001244E9 /* MainViewController.swift */; };
 		4A1B50FC23161FEA001244E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B50FA23161FEA001244E9 /* AppDelegate.swift */; };
@@ -90,6 +95,11 @@
 		4A0AFE452328E2A90017F934 /* Add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add@2x.png"; sourceTree = "<group>"; };
 		4A0AFE462328E2A90017F934 /* Add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add@3x.png"; sourceTree = "<group>"; };
 		4A0AFE4B2328E3860017F934 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		4A0AFE4D2328F1C90017F934 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		4A0AFE4F2328F5B60017F934 /* MyListConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListConst.swift; sourceTree = "<group>"; };
+		4A0AFE512328FAE30017F934 /* birthdayIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "birthdayIcon@2x.png"; sourceTree = "<group>"; };
+		4A0AFE522328FAE40017F934 /* birthdayIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birthdayIcon.png; sourceTree = "<group>"; };
+		4A0AFE532328FAE40017F934 /* birthdayIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "birthdayIcon@3x.png"; sourceTree = "<group>"; };
 		4A16AAA32315155200BEDC5C /* MLEvent+Biz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MLEvent+Biz.swift"; sourceTree = "<group>"; };
 		4A1B50F823161FE9001244E9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4A1B50FA23161FEA001244E9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +180,9 @@
 		4A0AFE432328E2A90017F934 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4A0AFE522328FAE40017F934 /* birthdayIcon.png */,
+				4A0AFE512328FAE30017F934 /* birthdayIcon@2x.png */,
+				4A0AFE532328FAE40017F934 /* birthdayIcon@3x.png */,
 				4A0AFE442328E2A90017F934 /* Add.png */,
 				4A0AFE452328E2A90017F934 /* Add@2x.png */,
 				4A0AFE462328E2A90017F934 /* Add@3x.png */,
@@ -181,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				4A0AFE4B2328E3860017F934 /* UIButton+Ext.swift */,
+				4A0AFE4D2328F1C90017F934 /* UIColor+Ext.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -199,6 +213,7 @@
 				4AC235C121B775F200D50F1E /* LaunchScreen.storyboard */,
 				4AC235C421B775F200D50F1E /* Info.plist */,
 				4AB8184323287F8400B2F19F /* BridgingHeader.h */,
+				4A0AFE4F2328F5B60017F934 /* MyListConst.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -482,6 +497,8 @@
 				4AC235C321B775F200D50F1E /* LaunchScreen.storyboard in Resources */,
 				4ADB18AF23166693002A8C5E /* surprise.aiff in Resources */,
 				4A0AFE482328E2A90017F934 /* Add@2x.png in Resources */,
+				4A0AFE562328FAE40017F934 /* birthdayIcon@3x.png in Resources */,
+				4A0AFE552328FAE40017F934 /* birthdayIcon.png in Resources */,
 				4ADB18B723167055002A8C5E /* payDebt.wav in Resources */,
 				4A0AFE472328E2A90017F934 /* Add.png in Resources */,
 				4ADB18B123166737002A8C5E /* bb.wav in Resources */,
@@ -489,6 +506,7 @@
 				4AC235BE21B775F000D50F1E /* Main.storyboard in Resources */,
 				4ADB18B323166C5E002A8C5E /* credential.wav in Resources */,
 				4A0AFE492328E2A90017F934 /* Add@3x.png in Resources */,
+				4A0AFE542328FAE40017F934 /* birthdayIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +546,8 @@
 				4A6EAC232328C73100EB250A /* KBLogKey.swift in Sources */,
 				4A6EAC1F2328C2FC00EB250A /* String+Path.swift in Sources */,
 				4A1B50FB23161FEA001244E9 /* MainViewController.swift in Sources */,
+				4A0AFE502328F5B60017F934 /* MyListConst.swift in Sources */,
+				4A0AFE4E2328F1C90017F934 /* UIColor+Ext.swift in Sources */,
 				4A6EAC202328C2FC00EB250A /* DispatchQueue+extension.swift in Sources */,
 				4A0AFE4C2328E3860017F934 /* UIButton+Ext.swift in Sources */,
 				4AC2368F21BA179500D50F1E /* MLEvent.swift in Sources */,

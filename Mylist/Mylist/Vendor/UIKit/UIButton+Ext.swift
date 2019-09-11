@@ -6,8 +6,7 @@
 //  Copyright © 2019 Kobe. All rights reserved.
 //
 
-import Foundation
-//#if TARGET_OS_IPHONE
+//#if TARGET_OS_IOS
 import UIKit
 
 extension UIButton {
@@ -33,5 +32,5 @@ extension UIButton {
         }
     }
 }
-//#elseif TARGET_OS_MAC
+//#if TARGET_OS_OSX
 //#endif
