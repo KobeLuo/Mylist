@@ -21,6 +21,8 @@
 		4A0AFE542328FAE40017F934 /* birthdayIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0AFE512328FAE30017F934 /* birthdayIcon@2x.png */; };
 		4A0AFE552328FAE40017F934 /* birthdayIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0AFE522328FAE40017F934 /* birthdayIcon.png */; };
 		4A0AFE562328FAE40017F934 /* birthdayIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0AFE532328FAE40017F934 /* birthdayIcon@3x.png */; };
+		4A0AFE582329E4DD0017F934 /* KBTagComponentsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AFE572329E4DD0017F934 /* KBTagComponentsPicker.swift */; };
+		4A0AFE5A232A351F0017F934 /* Foundation+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AFE59232A351F0017F934 /* Foundation+ext.swift */; };
 		4A16AAA52315157F00BEDC5C /* MLEvent+Biz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16AAA32315155200BEDC5C /* MLEvent+Biz.swift */; };
 		4A1B50FB23161FEA001244E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B50F823161FE9001244E9 /* MainViewController.swift */; };
 		4A1B50FC23161FEA001244E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B50FA23161FEA001244E9 /* AppDelegate.swift */; };
@@ -104,6 +106,8 @@
 		4A0AFE512328FAE30017F934 /* birthdayIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "birthdayIcon@2x.png"; sourceTree = "<group>"; };
 		4A0AFE522328FAE40017F934 /* birthdayIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birthdayIcon.png; sourceTree = "<group>"; };
 		4A0AFE532328FAE40017F934 /* birthdayIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "birthdayIcon@3x.png"; sourceTree = "<group>"; };
+		4A0AFE572329E4DD0017F934 /* KBTagComponentsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KBTagComponentsPicker.swift; sourceTree = "<group>"; };
+		4A0AFE59232A351F0017F934 /* Foundation+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+ext.swift"; sourceTree = "<group>"; };
 		4A16AAA32315155200BEDC5C /* MLEvent+Biz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MLEvent+Biz.swift"; sourceTree = "<group>"; };
 		4A1B50F823161FE9001244E9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4A1B50FA23161FEA001244E9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 			children = (
 				4A0AFE4B2328E3860017F934 /* UIButton+Ext.swift */,
 				4A0AFE4D2328F1C90017F934 /* UIColor+Ext.swift */,
+				4A0AFE572329E4DD0017F934 /* KBTagComponentsPicker.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				4A6EAC192328C2FC00EB250A /* String+Path.swift */,
 				4A6EAC1A2328C2FC00EB250A /* DispatchQueue+extension.swift */,
 				4A6EAC1B2328C2FC00EB250A /* Keychain+Ext.swift */,
+				4A0AFE59232A351F0017F934 /* Foundation+ext.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -559,11 +565,13 @@
 				4A6EAC0F2328869000EB250A /* FMDatabasePool.m in Sources */,
 				4A6EAC1D2328C2FC00EB250A /* Dictionary+Ext.swift in Sources */,
 				4AC182E2230D289F000B6BFE /* MLContextEditorVC.swift in Sources */,
+				4A0AFE5A232A351F0017F934 /* Foundation+ext.swift in Sources */,
 				1894DF412329133F0069957A /* MLEventShowType.swift in Sources */,
 				4ADB18E8231D0AE2002A8C5E /* MLEventDBBiz.swift in Sources */,
 				4A6EAC102328869000EB250A /* FMResultSet.m in Sources */,
 				4A6EAC0D2328869000EB250A /* FMDatabaseAdditions.m in Sources */,
 				4A6EAC1C2328C2FC00EB250A /* KBLog.swift in Sources */,
+				4A0AFE582329E4DD0017F934 /* KBTagComponentsPicker.swift in Sources */,
 				4A6EAC0C2328869000EB250A /* FMDatabaseQueue.m in Sources */,
 				4A6EAC1E2328C2FC00EB250A /* KBCancelClosure.swift in Sources */,
 				4A6EAC232328C73100EB250A /* KBLogKey.swift in Sources */,

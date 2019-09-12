@@ -10,6 +10,7 @@ public enum LogKey: String {
     
     case editEvent
     case addEvent
+    case database
     case process
 }
 // 0 -> both not print , 1 -> just print in local ,
@@ -18,6 +19,7 @@ func logLevelDictionary() -> [String : Int]{
     return [
         LogKey.editEvent.rawValue :         2,
         LogKey.addEvent.rawValue :          2,
+        LogKey.database.rawValue :          2,
         LogKey.process.rawValue :           2,
     ]
 }

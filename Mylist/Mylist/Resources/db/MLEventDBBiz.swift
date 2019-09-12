@@ -304,7 +304,7 @@ extension MLEventDBBiz {
     
     static func dbPath() -> String {
         
-        return Bundle.main.bundlePath + "/myList.db"
+        return NSHomeDirectory() + "/Documents/myList.db"
     }
     func tableName(type: MLTableName) -> String {
         
@@ -313,7 +313,6 @@ extension MLEventDBBiz {
         case .list:             name = MLEventEntity().tableName()
         case .completedList:    name = MLEventCompletedEntity().tableName()
         case .expiredList:      name = MLEventExpiredEntity().tableName()
-        default: break
         }
         return name
     }

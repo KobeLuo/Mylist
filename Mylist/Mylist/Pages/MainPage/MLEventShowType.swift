@@ -133,6 +133,20 @@ enum MLMainShowType: RawRepresentable, Equatable, MLTypeProtocol {
         }
     }
     
+    static func allType() -> [MLMainShowType] {
+        
+        return [.all, .birthday, .credit, .payDebt,
+                .normal, .alarmBell, .countDown, .emergency,
+                .important, .latest, .done, .expired]
+    }
+    static func typeDescList() -> [String] {
+        
+        return allType().map({ (t) -> String in
+            
+            return t.typeDesc()
+        })
+    }
+    
     fileprivate func contains(type: MLMainShowType) -> Bool {
         
         return self & type == type

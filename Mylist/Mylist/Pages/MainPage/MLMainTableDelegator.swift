@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-
-
 class MLMainTableDelegator: NSObject, UITableViewDelegate,UITableViewDataSource {
     
     var dataSource: [String : [MLEvent]]!

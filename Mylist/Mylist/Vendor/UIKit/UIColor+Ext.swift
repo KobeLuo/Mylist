@@ -21,6 +21,11 @@ extension UIColor {
         self.init(red: CGFloat(r)/255.0, green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: a)
     }
     
+    class func randomColor() -> UIColor {
+        
+        return UIColor(randomeDigitor(in: 255),randomeDigitor(in: 255),randomeDigitor(in: 255))
+    }
+    
     convenience init(_ hex: Int) { self.init(hex, 1.0) }
     convenience init(_ hex: Int, _ a: CGFloat) {
         

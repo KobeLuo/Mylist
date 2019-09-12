@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var listTable: UITableView!
+    @IBOutlet weak var menuBtn: UIButton!
     var eventMap: [MLEventIdType : MLEvent]!
     var tableDelegator: MLMainTableDelegator!
     
@@ -22,9 +23,35 @@ class MainViewController: UIViewController {
         
         eventMap = [MLEventIdType : MLEvent]()
         
+        LogInfo(key: .database, detail: "db path:\(NSHomeDirectory()+"/Documents/myList.db")")
+        
         setupTableView()
+        
+        prepareData()
+        listTable.reloadData()
     }
 
+    @IBAction func menuAction(_ button: UIButton) {
+        
+        var transform = CGAffineTransform.identity
+        if button.imageView?.transform.isIdentity == true {
+            
+            transform = CGAffineTransform.init(rotationAngle: CGFloat.pi/2)
+            
+            KBTagPicker.pickerFrom(list: MLMainShowType.typeDescList(), showIn: view) { (list) in
+                print("\(list)")
+            }
+        }else {
+            
+            KBTagPicker.removePicker()
+        }
+        
+        UIView.animate(withDuration: 0.1) {
+            
+            button.imageView?.transform = transform
+        }
+    }
+    
     fileprivate func setupTableView() {
         
         tableDelegator = MLMainTableDelegator()
@@ -32,10 +59,6 @@ class MainViewController: UIViewController {
         
         listTable.delegate = tableDelegator
         listTable.dataSource = tableDelegator
-        
-        prepareData()
-        
-        listTable.reloadData()
     }
     
 }
