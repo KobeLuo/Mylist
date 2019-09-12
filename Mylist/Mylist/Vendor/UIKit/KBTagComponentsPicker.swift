@@ -95,3 +95,15 @@ class KBTagPicker: NSObject {
         LogInfo(key: .process, detail: "\(self) did dealloc")
     }
 }
+
+class KBTextComponents: UILabel {
+    
+    class func components(text: String) -> KBTextComponents {
+        
+        let com = KBTextComponents()
+        com.text = text
+        
+        
+    }
+}
+
