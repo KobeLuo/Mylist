@@ -62,9 +62,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="提醒列表" id="lJh-RZ-Beo">
-                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="nv8-AZ-gcc">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zvn-DH-l72">
-                                <rect key="frame" x="16" y="9" width="59" height="26"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="nv8-AZ-gcc">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zvn-DH-l72">
+                                <rect key="frame" x="16" y="7" width="69" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="全部" image="triangleIcon"/>
                                 <state key="selected" title="全部" image="triangleIcon"/>
@@ -76,6 +76,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addBtn" destination="TNM-r5-VfG" id="yuO-Fq-Xrz"/>
+                        <outlet property="leftBar" destination="nv8-AZ-gcc" id="INi-2P-nr1"/>
                         <outlet property="listTable" destination="P26-h2-ILE" id="c35-yM-YOa"/>
                         <outlet property="menuBtn" destination="Zvn-DH-l72" id="w1f-WL-7VI"/>
                     </connections>

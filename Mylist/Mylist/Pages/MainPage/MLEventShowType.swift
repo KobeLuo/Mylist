@@ -162,6 +162,11 @@ enum MLMainShowType: RawRepresentable, Equatable, MLTypeProtocol {
         return lt.rawValue == rt.rawValue
     }
     
+    static func +(lt: MLMainShowType, rt: MLMainShowType) -> MLMainShowType {
+        
+        return MLMainShowType(rawValue: lt.rawValue + rt.rawValue)
+    }
+    
     static internal func !=(lt: MLMainShowType, rt: MLMainShowType) -> Bool {
         
         return lt.rawValue != rt.rawValue

@@ -79,18 +79,14 @@ class KBTagPicker: NSObject {
         }
     }
     
-    @discardableResult class func removePicker() -> [String] {
-        
-        let list = singlePicker!.selectedInfo.map { (k,v) -> String in return k }
-        
+    class func removePicker() {
+
         if singlePicker != nil && singlePicker!.bgv.superview != nil {
             
             singlePicker!.bgv.removeFromSuperview()
         }
         singlePicker?.invoke = nil
         singlePicker = nil
-        
-        return list
     }
     
     func setup() {
