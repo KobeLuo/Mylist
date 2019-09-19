@@ -13,15 +13,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var listTable: UITableView!
     @IBOutlet weak var menuBtn: UIButton!
-    var eventMap: [MLEventIdType : MLEvent]!
+    var dbList: [MLEvent]!
+    var eventMap = [MLEventIdType : [MLEvent]]()
     var tableDelegator: MLMainTableDelegator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         addBtn.addAnimatorWhenTapped()
-        
-        eventMap = [MLEventIdType : MLEvent]()
         
         LogInfo(key: .database, detail: "db path:\(NSHomeDirectory()+"/Documents/myList.db")")
         
@@ -38,18 +37,58 @@ class MainViewController: UIViewController {
             
             transform = CGAffineTransform.init(rotationAngle: CGFloat.pi/2)
             
-            KBTagPicker.pickerFrom(list: MLMainShowType.typeDescList(), showIn: view) { (list) in
-                print("\(list)")
+            KBTagPicker.pickerFrom(list: MLMainShowType.typeDescList(), showIn: view) { (oldList,newList) in
+                
+                let list = self.filterList(oldlist: oldList, newlist: newList)
+             
+                KBTagPicker.pickerSelected(list: list)
             }
         }else {
             
-            KBTagPicker.removePicker()
+            let list = KBTagPicker.removePicker()
+            print("end list:\(list)")
+            //update hashMap
         }
         
         UIView.animate(withDuration: 0.1) {
             
             button.imageView?.transform = transform
         }
+    }
+    
+    func filterList(oldlist: [String],newlist: [String]) -> [String] {
+        
+        var list = newlist
+        var oldInfo = [String: Int]()
+        var newInfo = [String: Int]()
+        let _ = oldlist.map { (v) -> Int in oldInfo[v] = 1; return 0 }
+        let _ = newlist.map { (v) -> Int in newInfo[v] = 1; return 0 }
+        let allDesc = MLMainShowType.all.desc
+        let allList = MLMainShowType.typeDescList()
+        if oldInfo[allDesc] == 1 {
+            
+            if newInfo[allDesc] == nil {
+                
+                list = [String]()
+            }else if newInfo.keys.count < oldInfo.keys.count {
+                
+                newInfo.removeValue(forKey: allDesc)
+                
+                list = newInfo.map({ (k,_) -> String in return k })
+            }
+        }else {
+            
+            if newInfo[allDesc] == 1 {
+                
+                list = allList
+            }else if newInfo.keys.count == allList.count - 1 {
+                
+                newInfo[allDesc] = 1
+                list = newInfo.map({ (k,_) -> String in return k })
+            }
+        }
+
+        return list
     }
     
     fileprivate func setupTableView() {
@@ -60,7 +99,6 @@ class MainViewController: UIViewController {
         listTable.delegate = tableDelegator
         listTable.dataSource = tableDelegator
     }
-    
 }
 
 // Data provider
@@ -68,8 +106,22 @@ extension MainViewController {
     
     fileprivate func prepareData() {
         //access db list data
-        let dblist: [MLEvent] = MLEventDBBiz.fetchAllEvents()
-        let _ = dblist.map({ (e) in eventMap[e.e_id] = e })
+        if dbList == nil {
+            
+            let list: [MLEvent] = MLEventDBBiz.fetchAllEvents()
+            dbList = list
+        }
+        
+        let _ = dbList.map({ (e) in
+            
+            var list = [MLEvent]()
+            if let oldList = eventMap[e.e_id] {
+                
+                list.append(contentsOf: oldList)
+            }
+            list.append(e)
+            eventMap[e.e_id] = list
+        })
         
         //prepare show list data
         var type: MLMainShowType!
@@ -118,7 +170,7 @@ extension MainViewController {
         
         var list = [MLEvent]()
         
-        list = eventMap.values.filter { (event) -> Bool in
+        list = dbList.filter { (event) -> Bool in
             
             return event.e_type?.rawValue == type.rawValue
         }
@@ -130,7 +182,7 @@ extension MainViewController {
         
         var list = [MLEvent]()
         
-        list = eventMap.values.filter({ (event) -> Bool in
+        list = dbList.filter({ (event) -> Bool in
             
             return event.e_qos?.rawValue == qos.rawValue
         })
@@ -142,7 +194,7 @@ extension MainViewController {
         
         var list = [MLEvent]()
         
-        list = eventMap.values.filter({ (event) -> Bool in
+        list = dbList.filter({ (event) -> Bool in
             
             return event.e_state?.rawValue == eventStatus.rawValue
         })
@@ -169,4 +221,9 @@ extension MLEventType {
     }
 }
 
+
+extension KBTagPicker {
+    
+    
+}
 
