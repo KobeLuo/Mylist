@@ -41,7 +41,8 @@ class MainViewController: UIViewController {
             
             transform = CGAffineTransform.init(rotationAngle: CGFloat.pi/2)
             
-            KBTagPicker.pickerFrom(list: MLMainShowType.typeDescList(), showIn: view) { (oldList,newList) in
+            KBTagPicker.pickerFrom(list: MLMainShowType.typeDescList(),
+                                   showIn: view) { (oldList,newList) in
                 
                 let list = self.filterList(oldlist: oldList, newlist: newList)
              
@@ -52,7 +53,9 @@ class MainViewController: UIViewController {
                 
                 return type.desc
             }
-            KBTagPicker.pickerSelected(list: selectedList)
+            
+            KBTagPicker.pickerSelected(list: filterList(oldlist: selectedList,
+                                                        newlist: selectedList, true))
             
         }else {
             
@@ -69,6 +72,11 @@ class MainViewController: UIViewController {
     }
     
     func filterList(oldlist: [String],newlist: [String]) -> [String] {
+        
+        return filterList(oldlist: oldlist, newlist: newlist, false)
+    }
+    
+    func filterList(oldlist: [String],newlist: [String],_ onlyfilter: Bool) -> [String] {
         
         var list = newlist
         var oldInfo = [String: Int]()
@@ -113,10 +121,13 @@ class MainViewController: UIViewController {
             showText = MLMainShowType.init(desc: newInfo.keys.first!).desc
         }
         
-        cacheTypeWith(list: list)
+        if onlyfilter == false {
+            
+            cacheTypeWith(list: list)
+            //update menu button
+            menuBtn.setTitle(showText, for: .normal)
+        }
         
-        //update menu button
-        menuBtn.setTitle(showText, for: .normal)
         return list
     }
     
